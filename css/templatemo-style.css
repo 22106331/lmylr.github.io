@@ -216,6 +216,8 @@ button:focus { outline: none; }
   	height: auto;
   	border: 10px solid #ffffff;
   	margin: 0 auto 10px;
+	z-index:9999;
+	position: relative;
 }
 
 /* Contact */
