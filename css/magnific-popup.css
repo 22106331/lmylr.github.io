@@ -78,7 +78,10 @@
   user-select: none; }
 
 .mfp-loading.mfp-figure {
-  display: none; }
+  display: none;
+  z-index: 9999;
+  z-index:9999;
+  position: relative;}
 
 .mfp-hide {
   display: none !important; }
