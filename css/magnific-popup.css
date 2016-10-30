@@ -80,7 +80,6 @@
 .mfp-loading.mfp-figure {
   display: none;
   z-index: 9999;
-  z-index:9999;
   position: relative;}
 
 .mfp-hide {
@@ -268,7 +267,7 @@ img.mfp-img {
     right: 0;
     width: auto;
     height: auto;
-    z-index: -1;
+    z-index: 2;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
     background: #444; }
   .mfp-figure small {
