@@ -38832,7 +38832,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+		value: true
 	});
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -38866,141 +38866,87 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var styles = {
-	  root: {
-	    display: 'flex',
-	    flexWrap: 'wrap',
-	    paddingTop: 20,
-	    justifyContent: 'space-around',
-	    overflow: 'hidden'
-	  },
-	  content: {
-	    width: 750,
-	    height: '100%',
-	    overflowY: 'auto',
-	    overflowX: 'hidden'
-	  },
-	  card: {
-	    paddingTop: 5,
-	    paddingBottom: 10
-	  }
+		root: {
+			display: 'flex',
+			flexWrap: 'wrap',
+			paddingTop: 20,
+			justifyContent: 'space-around',
+			overflow: 'hidden'
+		},
+		content: {
+			width: 750,
+			height: '100%',
+			overflowY: 'auto',
+			overflowX: 'hidden'
+		},
+		card: {
+			paddingTop: 5,
+			paddingBottom: 10
+		}
 	};
 	
-	var data = [{
-	  img: 'img/yaca/img-01-tn.jpg',
-	  title: 'Breakfast',
-	  author: 'jill111'
-	}, {
-	  img: 'img/yaca/img-02-tn.jpg',
-	  title: 'Tasty burger',
-	  author: 'pashminu'
-	}, {
-	  img: 'img/yaca/img-03-tn.jpg',
-	  title: 'Camera',
-	  author: 'Danson67'
-	}, {
-	  img: 'img/yaca/img-04-tn.jpg',
-	  title: 'Morning',
-	  author: 'fancycrave1'
-	}, {
-	  img: 'img/yaca/img-05-tn.jpg',
-	  title: 'Hats',
-	  author: 'Hans'
-	}, {
-	  img: 'img/yaca/img-06-tn.jpg',
-	  title: 'Honey',
-	  author: 'fancycravel'
-	}, {
-	  img: 'img/yaca/img-07-tn.jpg',
-	  title: 'Vegetables',
-	  author: 'jill111'
-	}, {
-	  img: 'img/yaca/img-09-tn.jpg',
-	  title: 'Water plant',
-	  author: 'BkrmadtyaKarki'
-	}, {
-	  img: 'img/yaca/img-10-tn.jpg',
-	  title: 'Water plant',
-	  author: 'BkrmadtyaKarki'
-	}, {
-	  img: 'img/yaca/img-11-tn.jpg',
-	  title: 'Water plant',
-	  author: 'BkrmadtyaKarki'
-	}, {
-	  img: 'img/yaca/img-12-tn.jpg',
-	  title: 'Water plant',
-	  author: 'BkrmadtyaKarki'
-	}, {
-	  img: 'img/yaca/img-13-tn.jpg',
-	  title: 'Water plant',
-	  author: 'BkrmadtyaKarki'
-	}, {
-	  img: 'img/yaca/img-14-tn.jpg',
-	  title: 'Water plant',
-	  author: 'BkrmadtyaKarki'
-	}];
-	
 	var GridView = function (_React$Component) {
-	  _inherits(GridView, _React$Component);
+		_inherits(GridView, _React$Component);
 	
-	  function GridView(props) {
-	    _classCallCheck(this, GridView);
+		function GridView(props) {
+			_classCallCheck(this, GridView);
 	
-	    var _this = _possibleConstructorReturn(this, (GridView.__proto__ || Object.getPrototypeOf(GridView)).call(this, props));
+			var _this = _possibleConstructorReturn(this, (GridView.__proto__ || Object.getPrototypeOf(GridView)).call(this, props));
 	
-	    _this.placeZero = function (value) {
-	      return ('' + value).length == 1 ? '0' + value : value;
-	    };
+			_this.placeZero = function (value) {
+				return ('' + value).length == 1 ? '0' + value : value;
+			};
 	
-	    _this.listImage = function (dir, size) {
-	      var data = [];
-	      for (var i = 1; i <= size; i++) {
-	        data.push({
-	          img: dir + 'img-' + _this.placeZero(i) + '-tn.jpg',
-	          title: _this.placeZero(i),
-	          author: 'lmyooyo'
-	        });
-	      }
-	      return data;
-	    };
+			_this.listImage = function (dir, size) {
+				var data = [];
+				for (var i = 1; i <= size; i++) {
+					data.push({
+						img: dir + 'img-' + _this.placeZero(i) + '-tn.jpg',
+						title: _this.placeZero(i),
+						author: 'lmyooyo'
+					});
+				}
+				return data;
+			};
 	
-	    return _this;
-	  }
+			return _this;
+		}
 	
-	  _createClass(GridView, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { style: styles.root },
-	        _react2.default.createElement(
-	          _GridList.GridList,
-	          {
-	            cols: 3,
-	            padding: 20,
-	            cellHeight: '100%',
-	            style: styles.content },
-	          this.listImage(this.props.dir, this.props.size).map(function (tile) {
-	            return _react2.default.createElement(
-	              _GridList.GridTile,
-	              {
-	                key: tile.img },
-	              _react2.default.createElement(
-	                _Card.Card,
-	                { style: styles.card },
-	                _react2.default.createElement(
-	                  _Card.CardMedia,
-	                  null,
-	                  _react2.default.createElement('img', { src: tile.img })
-	                )
-	              )
-	            );
-	          })
-	        )
-	      );
-	    }
-	  }]);
+		_createClass(GridView, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					{ style: styles.root },
+					_react2.default.createElement(
+						_GridList.GridList,
+						{
+							cols: 3,
+							padding: 20,
+							cellHeight: '100%',
+							style: styles.content },
+						this.listImage(this.props.dir, this.props.size).map(function (tile) {
+							return _react2.default.createElement(
+								_GridList.GridTile,
+								{
+									key: tile.img },
+								_react2.default.createElement(
+									_Card.Card,
+									{ style: styles.card },
+									_react2.default.createElement(
+										_Card.CardMedia,
+										null,
+										_react2.default.createElement('img', { src: tile.img })
+									)
+								)
+							);
+						})
+					)
+				);
+			}
+		}]);
 	
-	  return GridView;
+		return GridView;
 	}(_react2.default.Component);
 	
 	exports.default = GridView;
