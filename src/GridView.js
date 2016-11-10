@@ -25,7 +25,7 @@ const styles = {
   },
 };
 
-const tilesData = [
+const data = [
   {
     img: 'img/yaca/img-01-tn.jpg',
     title: 'Breakfast',
@@ -92,7 +92,28 @@ const tilesData = [
     author: 'BkrmadtyaKarki',
   },
 ];
+	
 class GridView extends React.Component {
+	constructor(props) {
+		super(props);
+	};
+	
+	placeZero = (value)=>{
+		return (''+value).length==1?('0'+value):value;
+	}
+	
+	listImage = (dir, size)=>{
+		let data = [];
+		for(var i= 1; i<=size; i++){
+			data.push({
+				img: dir+'img-'+this.placeZero(i)+'-tn.jpg',
+				title: this.placeZero(i),
+				author: 'lmyooyo',
+			});
+		}
+		return data;
+	}
+	
 	render() {
     return (
 		<div style={styles.root}>
@@ -101,7 +122,7 @@ class GridView extends React.Component {
 				padding={20}
 				cellHeight={'100%'}
 				style={styles.content}>
-					{tilesData.map((tile) => (
+					{this.listImage(this.props.dir,this.props.size).map((tile) => (
 						<GridTile
 							key={tile.img}>
 							<Card  style={styles.card}>

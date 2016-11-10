@@ -49,8 +49,8 @@ class GalleryView extends React.Component {
 		  <SwipeableViews
 			  index={this.state.slideIndex}
 			  onChangeIndex={this.handleChange} >
-			  <GridView/>
-			  <GridView/>
+			  <GridView dir='./img/yaca/' size={11}/>
+			  <GridView dir='./img/yuexiu/' size={6}/>
 			</SwipeableViews>
 		</view>
 	</view>

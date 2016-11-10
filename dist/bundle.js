@@ -34869,11 +34869,11 @@
 	
 	var _GalleryView2 = _interopRequireDefault(_GalleryView);
 	
-	var _VideoView = __webpack_require__(/*! ./VideoView */ 408);
+	var _VideoView = __webpack_require__(/*! ./VideoView */ 409);
 	
 	var _VideoView2 = _interopRequireDefault(_VideoView);
 	
-	var _AboutView = __webpack_require__(/*! ./AboutView */ 409);
+	var _AboutView = __webpack_require__(/*! ./AboutView */ 410);
 	
 	var _AboutView2 = _interopRequireDefault(_AboutView);
 	
@@ -34920,7 +34920,7 @@
 			position: 'absolute',
 			width: '100%',
 			height: '100%',
-			paddingTop: 56,
+			paddingTop: 64,
 			paddingBottom: 56,
 			overflow: 'hidden',
 			top: 0,
@@ -38035,7 +38035,7 @@
 	
 	var _reactSwipeableViews2 = _interopRequireDefault(_reactSwipeableViews);
 	
-	var _GridView = __webpack_require__(/*! ./GridView */ 410);
+	var _GridView = __webpack_require__(/*! ./GridView */ 408);
 	
 	var _GridView2 = _interopRequireDefault(_GridView);
 	
@@ -38107,8 +38107,8 @@
 													{
 															index: this.state.slideIndex,
 															onChangeIndex: this.handleChange },
-													_react2.default.createElement(_GridView2.default, null),
-													_react2.default.createElement(_GridView2.default, null)
+													_react2.default.createElement(_GridView2.default, { dir: './img/yaca/', size: 11 }),
+													_react2.default.createElement(_GridView2.default, { dir: './img/yuexiu/', size: 6 })
 											)
 									)
 							);
@@ -38824,6 +38824,189 @@
 
 /***/ },
 /* 408 */
+/*!*************************!*\
+  !*** ./src/GridView.js ***!
+  \*************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _GridList = __webpack_require__(/*! material-ui/GridList */ 411);
+	
+	var _IconButton = __webpack_require__(/*! material-ui/IconButton */ 333);
+	
+	var _IconButton2 = _interopRequireDefault(_IconButton);
+	
+	var _Subheader = __webpack_require__(/*! material-ui/Subheader */ 415);
+	
+	var _Subheader2 = _interopRequireDefault(_Subheader);
+	
+	var _starBorder = __webpack_require__(/*! material-ui/svg-icons/toggle/star-border */ 417);
+	
+	var _starBorder2 = _interopRequireDefault(_starBorder);
+	
+	var _Card = __webpack_require__(/*! material-ui/Card */ 418);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var styles = {
+	  root: {
+	    display: 'flex',
+	    flexWrap: 'wrap',
+	    paddingTop: 20,
+	    justifyContent: 'space-around',
+	    overflow: 'hidden'
+	  },
+	  content: {
+	    width: 750,
+	    height: '100%',
+	    overflowY: 'auto',
+	    overflowX: 'hidden'
+	  },
+	  card: {
+	    paddingTop: 5,
+	    paddingBottom: 10
+	  }
+	};
+	
+	var data = [{
+	  img: 'img/yaca/img-01-tn.jpg',
+	  title: 'Breakfast',
+	  author: 'jill111'
+	}, {
+	  img: 'img/yaca/img-02-tn.jpg',
+	  title: 'Tasty burger',
+	  author: 'pashminu'
+	}, {
+	  img: 'img/yaca/img-03-tn.jpg',
+	  title: 'Camera',
+	  author: 'Danson67'
+	}, {
+	  img: 'img/yaca/img-04-tn.jpg',
+	  title: 'Morning',
+	  author: 'fancycrave1'
+	}, {
+	  img: 'img/yaca/img-05-tn.jpg',
+	  title: 'Hats',
+	  author: 'Hans'
+	}, {
+	  img: 'img/yaca/img-06-tn.jpg',
+	  title: 'Honey',
+	  author: 'fancycravel'
+	}, {
+	  img: 'img/yaca/img-07-tn.jpg',
+	  title: 'Vegetables',
+	  author: 'jill111'
+	}, {
+	  img: 'img/yaca/img-09-tn.jpg',
+	  title: 'Water plant',
+	  author: 'BkrmadtyaKarki'
+	}, {
+	  img: 'img/yaca/img-10-tn.jpg',
+	  title: 'Water plant',
+	  author: 'BkrmadtyaKarki'
+	}, {
+	  img: 'img/yaca/img-11-tn.jpg',
+	  title: 'Water plant',
+	  author: 'BkrmadtyaKarki'
+	}, {
+	  img: 'img/yaca/img-12-tn.jpg',
+	  title: 'Water plant',
+	  author: 'BkrmadtyaKarki'
+	}, {
+	  img: 'img/yaca/img-13-tn.jpg',
+	  title: 'Water plant',
+	  author: 'BkrmadtyaKarki'
+	}, {
+	  img: 'img/yaca/img-14-tn.jpg',
+	  title: 'Water plant',
+	  author: 'BkrmadtyaKarki'
+	}];
+	
+	var GridView = function (_React$Component) {
+	  _inherits(GridView, _React$Component);
+	
+	  function GridView(props) {
+	    _classCallCheck(this, GridView);
+	
+	    var _this = _possibleConstructorReturn(this, (GridView.__proto__ || Object.getPrototypeOf(GridView)).call(this, props));
+	
+	    _this.placeZero = function (value) {
+	      return ('' + value).length == 1 ? '0' + value : value;
+	    };
+	
+	    _this.listImage = function (dir, size) {
+	      var data = [];
+	      for (var i = 1; i <= size; i++) {
+	        data.push({
+	          img: dir + 'img-' + _this.placeZero(i) + '-tn.jpg',
+	          title: _this.placeZero(i),
+	          author: 'lmyooyo'
+	        });
+	      }
+	      return data;
+	    };
+	
+	    return _this;
+	  }
+	
+	  _createClass(GridView, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { style: styles.root },
+	        _react2.default.createElement(
+	          _GridList.GridList,
+	          {
+	            cols: 3,
+	            padding: 20,
+	            cellHeight: '100%',
+	            style: styles.content },
+	          this.listImage(this.props.dir, this.props.size).map(function (tile) {
+	            return _react2.default.createElement(
+	              _GridList.GridTile,
+	              {
+	                key: tile.img },
+	              _react2.default.createElement(
+	                _Card.Card,
+	                { style: styles.card },
+	                _react2.default.createElement(
+	                  _Card.CardMedia,
+	                  null,
+	                  _react2.default.createElement('img', { src: tile.img })
+	                )
+	              )
+	            );
+	          })
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return GridView;
+	}(_react2.default.Component);
+	
+	exports.default = GridView;
+
+/***/ },
+/* 409 */
 /*!**************************!*\
   !*** ./src/VideoView.js ***!
   \**************************/
@@ -38879,7 +39062,7 @@
 	exports.default = VideoView;
 
 /***/ },
-/* 409 */
+/* 410 */
 /*!**************************!*\
   !*** ./src/AboutView.js ***!
   \**************************/
@@ -38983,171 +39166,6 @@
 	}(_react2.default.Component);
 	
 	exports.default = AboutView;
-
-/***/ },
-/* 410 */
-/*!*************************!*\
-  !*** ./src/GridView.js ***!
-  \*************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _GridList = __webpack_require__(/*! material-ui/GridList */ 411);
-	
-	var _IconButton = __webpack_require__(/*! material-ui/IconButton */ 333);
-	
-	var _IconButton2 = _interopRequireDefault(_IconButton);
-	
-	var _Subheader = __webpack_require__(/*! material-ui/Subheader */ 415);
-	
-	var _Subheader2 = _interopRequireDefault(_Subheader);
-	
-	var _starBorder = __webpack_require__(/*! material-ui/svg-icons/toggle/star-border */ 417);
-	
-	var _starBorder2 = _interopRequireDefault(_starBorder);
-	
-	var _Card = __webpack_require__(/*! material-ui/Card */ 418);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var styles = {
-	  root: {
-	    display: 'flex',
-	    flexWrap: 'wrap',
-	    paddingTop: 20,
-	    justifyContent: 'space-around',
-	    overflow: 'hidden'
-	  },
-	  content: {
-	    width: 750,
-	    height: '100%',
-	    overflowY: 'auto',
-	    overflowX: 'hidden'
-	  },
-	  card: {
-	    paddingTop: 5,
-	    paddingBottom: 10
-	  }
-	};
-	
-	var tilesData = [{
-	  img: 'img/yaca/img-01-tn.jpg',
-	  title: 'Breakfast',
-	  author: 'jill111'
-	}, {
-	  img: 'img/yaca/img-02-tn.jpg',
-	  title: 'Tasty burger',
-	  author: 'pashminu'
-	}, {
-	  img: 'img/yaca/img-03-tn.jpg',
-	  title: 'Camera',
-	  author: 'Danson67'
-	}, {
-	  img: 'img/yaca/img-04-tn.jpg',
-	  title: 'Morning',
-	  author: 'fancycrave1'
-	}, {
-	  img: 'img/yaca/img-05-tn.jpg',
-	  title: 'Hats',
-	  author: 'Hans'
-	}, {
-	  img: 'img/yaca/img-06-tn.jpg',
-	  title: 'Honey',
-	  author: 'fancycravel'
-	}, {
-	  img: 'img/yaca/img-07-tn.jpg',
-	  title: 'Vegetables',
-	  author: 'jill111'
-	}, {
-	  img: 'img/yaca/img-09-tn.jpg',
-	  title: 'Water plant',
-	  author: 'BkrmadtyaKarki'
-	}, {
-	  img: 'img/yaca/img-10-tn.jpg',
-	  title: 'Water plant',
-	  author: 'BkrmadtyaKarki'
-	}, {
-	  img: 'img/yaca/img-11-tn.jpg',
-	  title: 'Water plant',
-	  author: 'BkrmadtyaKarki'
-	}, {
-	  img: 'img/yaca/img-12-tn.jpg',
-	  title: 'Water plant',
-	  author: 'BkrmadtyaKarki'
-	}, {
-	  img: 'img/yaca/img-13-tn.jpg',
-	  title: 'Water plant',
-	  author: 'BkrmadtyaKarki'
-	}, {
-	  img: 'img/yaca/img-14-tn.jpg',
-	  title: 'Water plant',
-	  author: 'BkrmadtyaKarki'
-	}];
-	
-	var GridView = function (_React$Component) {
-	  _inherits(GridView, _React$Component);
-	
-	  function GridView() {
-	    _classCallCheck(this, GridView);
-	
-	    return _possibleConstructorReturn(this, (GridView.__proto__ || Object.getPrototypeOf(GridView)).apply(this, arguments));
-	  }
-	
-	  _createClass(GridView, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { style: styles.root },
-	        _react2.default.createElement(
-	          _GridList.GridList,
-	          {
-	            cols: 3,
-	            padding: 20,
-	            cellHeight: '100%',
-	            style: styles.content },
-	          tilesData.map(function (tile) {
-	            return _react2.default.createElement(
-	              _GridList.GridTile,
-	              {
-	                key: tile.img },
-	              _react2.default.createElement(
-	                _Card.Card,
-	                { style: styles.card },
-	                _react2.default.createElement(
-	                  _Card.CardMedia,
-	                  null,
-	                  _react2.default.createElement('img', { src: tile.img })
-	                )
-	              )
-	            );
-	          })
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return GridView;
-	}(_react2.default.Component);
-	
-	exports.default = GridView;
 
 /***/ },
 /* 411 */

@@ -32,7 +32,7 @@ const styles = {
 	position:'absolute',
 	width: '100%',
 	height: '100%',
-    paddingTop: 56,
+    paddingTop: 64,
     paddingBottom: 56,
 	overflow: 'hidden',
 	top:0,
