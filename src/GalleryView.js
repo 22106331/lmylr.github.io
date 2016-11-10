@@ -1,6 +1,7 @@
 import React from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
+import GridView from './GridView';
 
 const styles = {
   root:{
@@ -42,23 +43,14 @@ class GalleryView extends React.Component {
 		  <Tabs
 			value={this.state.slideIndex}
 			onChange={this.handleChange} >
-			  <Tab label="Tab One" value={0}/>
-			  <Tab label="Tab Two" value={1} />
-			  <Tab label="Tab Three" value={2} />
+			  <Tab label="广州YACA漫展" value={0}/>
+			  <Tab label="越秀公园" value={1} />
 		  </Tabs>
 		  <SwipeableViews
 			  index={this.state.slideIndex}
 			  onChangeIndex={this.handleChange} >
-			  <view>
-				<h2 >Tabs with slide effect</h2>
-				Swipe to see the next slide.<br />
-			  </view>
-			  <view >
-				slide n°2
-			  </view>
-			  <view >
-				slide n°3
-			  </view>
+			  <GridView/>
+			  <GridView/>
 			</SwipeableViews>
 		</view>
 	</view>
