@@ -31,10 +31,10 @@ class AboutView extends React.Component {
 			<img width='100%' src='./img/bg-about.jpg' style={styles.bg} />
 			<div style={styles.content}>
 				<div style={styles.pager} >
-					<h2 >关于</h2>
+					<h2 >联系作者</h2>
 					<div>
-						<p >欢迎关注我的博客，后续作品不断上传中。</p>
-						<p >本博客以及包含本人水印的所有原创作品版权归本人所有，如需使用请联系本人，否则视为侵权。如果博客作品中游侵权行为，欢迎联系本人予以删除。</p>
+                        <p >QQ:425078310</p>
+                        <p >Email:<a href="mailto:lmyooyo@gmail.com">lmyooyo@gmail.com</a></p>
 					</div>
 				</div>
 			</div>

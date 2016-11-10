@@ -38968,7 +38968,7 @@
 							_react2.default.createElement(
 								'h2',
 								null,
-								'\u5173\u4E8E'
+								'\u8054\u7CFB\u4F5C\u8005'
 							),
 							_react2.default.createElement(
 								'div',
@@ -38976,12 +38976,17 @@
 								_react2.default.createElement(
 									'p',
 									null,
-									'\u6B22\u8FCE\u5173\u6CE8\u6211\u7684\u535A\u5BA2\uFF0C\u540E\u7EED\u4F5C\u54C1\u4E0D\u65AD\u4E0A\u4F20\u4E2D\u3002'
+									'QQ:425078310'
 								),
 								_react2.default.createElement(
 									'p',
 									null,
-									'\u672C\u535A\u5BA2\u4EE5\u53CA\u5305\u542B\u672C\u4EBA\u6C34\u5370\u7684\u6240\u6709\u539F\u521B\u4F5C\u54C1\u7248\u6743\u5F52\u672C\u4EBA\u6240\u6709\uFF0C\u5982\u9700\u4F7F\u7528\u8BF7\u8054\u7CFB\u672C\u4EBA\uFF0C\u5426\u5219\u89C6\u4E3A\u4FB5\u6743\u3002\u5982\u679C\u535A\u5BA2\u4F5C\u54C1\u4E2D\u6E38\u4FB5\u6743\u884C\u4E3A\uFF0C\u6B22\u8FCE\u8054\u7CFB\u672C\u4EBA\u4E88\u4EE5\u5220\u9664\u3002'
+									'Email:',
+									_react2.default.createElement(
+										'a',
+										{ href: 'mailto:lmyooyo@gmail.com' },
+										'lmyooyo@gmail.com'
+									)
 								)
 							)
 						)
