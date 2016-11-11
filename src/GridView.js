@@ -3,7 +3,10 @@ import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import Subheader from 'material-ui/Subheader';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import ImageViewer from './ImageViewer';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
+import {Card, CardTitle, CardMedia} from 'material-ui/Card';/**CardActions, CardHeader, CardText */
 
 const styles = {
   root: {
@@ -20,6 +23,7 @@ const styles = {
 	overflowX: 'hidden',
   },
   card: {
+	  cursor: 'pointer',
 	  paddingTop: 5,
 	  paddingBottom: 10,
   },
@@ -38,7 +42,7 @@ class GridView extends React.Component {
 		let data = [];
 		for(var i= 1; i<=size; i++){
 			data.push({
-				img: dir+'img-'+this.placeZero(i)+'-tn.jpg',
+				url: dir+'img-'+this.placeZero(i)+'-tn.jpg',
 				title: this.placeZero(i),
 				author: 'lmyooyo',
 			});
@@ -46,20 +50,27 @@ class GridView extends React.Component {
 		return data;
 	}
 	
+	show = (dir, image) => {
+		this.refs.dialog.show(dir, image);
+	}
+	
 	render() {
     return (
 		<div style={styles.root}>
+			<ImageViewer ref='dialog'/>
 			<GridList
 				cols={3}
 				padding={20}
 				cellHeight={'100%'}
 				style={styles.content}>
-					{this.listImage(this.props.dir,this.props.size).map((tile) => (
+					{this.listImage(this.props.dir,this.props.size).map((image) => (
 						<GridTile
-							key={tile.img}>
-							<Card  style={styles.card}>
+							key={image.url}>
+							<Card
+								style={styles.card}
+								onTouchTap={()=>this.show(this.props.dir, image.url)}>
 								<CardMedia >
-									<img src={tile.img}/>
+									<img src={image.url}/>
 								</CardMedia>
 							</Card>
 						</GridTile>
