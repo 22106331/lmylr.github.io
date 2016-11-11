@@ -88,11 +88,11 @@ class ImageViewer extends React.Component {
 		return data;
 	};
 	
-  handleChange = (value) => {
-    this.setState({
-      curIndex: value,
-    });
-  };
+	handleChange = (value) => {
+		this.setState({
+		  curIndex: value,
+		});
+	};
 
   render() {
     return (
