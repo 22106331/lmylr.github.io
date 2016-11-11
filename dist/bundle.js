@@ -38107,7 +38107,7 @@
 													{
 															index: this.state.slideIndex,
 															onChangeIndex: this.handleChange },
-													_react2.default.createElement(_GridView2.default, { dir: './img/yaca/', size: 11 }),
+													_react2.default.createElement(_GridView2.default, { dir: './img/yaca/', size: 8 }),
 													_react2.default.createElement(_GridView2.default, { dir: './img/yuexiu/', size: 6 })
 											)
 									)
@@ -38855,9 +38855,9 @@
 	
 	var _starBorder2 = _interopRequireDefault(_starBorder);
 	
-	var _ImageViewer = __webpack_require__(/*! ./ImageViewer */ 416);
+	var _ImageDialog = __webpack_require__(/*! ./ImageDialog */ 446);
 	
-	var _ImageViewer2 = _interopRequireDefault(_ImageViewer);
+	var _ImageDialog2 = _interopRequireDefault(_ImageDialog);
 	
 	var _Dialog = __webpack_require__(/*! material-ui/Dialog */ 417);
 	
@@ -38917,15 +38917,15 @@
 				for (var i = 1; i <= size; i++) {
 					data.push({
 						url: dir + 'img-' + _this.placeZero(i) + '-tn.jpg',
-						title: _this.placeZero(i),
+						index: _this.placeZero(i),
 						author: 'lmyooyo'
 					});
 				}
 				return data;
 			};
 	
-			_this.show = function (dir, image) {
-				_this.refs.dialog.show(dir, image);
+			_this.show = function (index, dir, size) {
+				_this.refs.dialog.show(index, dir, size);
 			};
 	
 			return _this;
@@ -38939,7 +38939,7 @@
 				return _react2.default.createElement(
 					'div',
 					{ style: styles.root },
-					_react2.default.createElement(_ImageViewer2.default, { ref: 'dialog' }),
+					_react2.default.createElement(_ImageDialog2.default, { ref: 'dialog' }),
 					_react2.default.createElement(
 						_GridList.GridList,
 						{
@@ -38957,7 +38957,7 @@
 									{
 										style: styles.card,
 										onTouchTap: function onTouchTap() {
-											return _this2.show(_this2.props.dir, image.url);
+											return _this2.show(image.index, _this2.props.dir, _this2.props.size);
 										} },
 									_react2.default.createElement(
 										_Card.CardMedia,
@@ -39624,7 +39624,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+		value: true
 	});
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -39632,18 +39632,6 @@
 	var _react = __webpack_require__(/*! react */ 1);
 	
 	var _react2 = _interopRequireDefault(_react);
-	
-	var _Dialog = __webpack_require__(/*! material-ui/Dialog */ 417);
-	
-	var _Dialog2 = _interopRequireDefault(_Dialog);
-	
-	var _FlatButton = __webpack_require__(/*! material-ui/FlatButton */ 427);
-	
-	var _FlatButton2 = _interopRequireDefault(_FlatButton);
-	
-	var _RaisedButton = __webpack_require__(/*! material-ui/RaisedButton */ 430);
-	
-	var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -39654,65 +39642,52 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var styles = {
-	  root: {
-	    position: 'fixed'
-	  },
-	  content: {
-	    width: '100%',
-	    maxWidth: 'none'
-	  }
+		root: {},
+		content: {},
+		card: {
+			display: 'inline-block',
+			height: 'auto',
+			width: 'auto',
+			maxWidth: '100%',
+			maxHeight: '100%'
+		}
 	};
 	
 	var ImageViewer = function (_React$Component) {
-	  _inherits(ImageViewer, _React$Component);
+		_inherits(ImageViewer, _React$Component);
 	
-	  function ImageViewer() {
-	    var _ref;
+		function ImageViewer(props) {
+			_classCallCheck(this, ImageViewer);
 	
-	    var _temp, _this, _ret;
+			var _this = _possibleConstructorReturn(this, (ImageViewer.__proto__ || Object.getPrototypeOf(ImageViewer)).call(this, props));
 	
-	    _classCallCheck(this, ImageViewer);
+			_this.listImage = function (dir, size) {
+				var data = [];
+				for (var i = 1; i <= size; i++) {
+					data.push({
+						url: dir + 'img-' + _this.placeZero(i) + '-tn.jpg',
+						title: _this.placeZero(i),
+						author: 'lmyooyo'
+					});
+				}
+				return data;
+			};
 	
-	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
+			return _this;
+		}
 	
-	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ImageViewer.__proto__ || Object.getPrototypeOf(ImageViewer)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-	      open: false
-	    }, _this.show = function (dir, image) {
-	      _this.setState({ open: true });
-	    }, _this.close = function () {
-	      _this.setState({ open: false });
-	    }, _temp), _possibleConstructorReturn(_this, _ret);
-	  }
+		_createClass(ImageViewer, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					{ style: styles.root },
+					_react2.default.createElement('img', { src: this.props.url, style: styles.card })
+				);
+			}
+		}]);
 	
-	  _createClass(ImageViewer, [{
-	    key: 'render',
-	    value: function render() {
-	      var actions = [_react2.default.createElement(_FlatButton2.default, {
-	        label: '\u5173\u95ED',
-	        primary: true,
-	        onTouchTap: this.close
-	      })];
-	
-	      return _react2.default.createElement(
-	        'div',
-	        { style: styles.root },
-	        _react2.default.createElement(
-	          _Dialog2.default,
-	          {
-	            title: 'Dialog With Custom Width',
-	            actions: actions,
-	            modal: true,
-	            contentStyle: styles.content,
-	            open: this.state.open },
-	          'This dialog spans the entire width of the screen.'
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return ImageViewer;
+		return ImageViewer;
 	}(_react2.default.Component);
 	
 	exports.default = ImageViewer;
@@ -41572,498 +41547,8 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
 
 /***/ },
-/* 430 */
-/*!*********************************************!*\
-  !*** ./~/material-ui/RaisedButton/index.js ***!
-  \*********************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = undefined;
-	
-	var _RaisedButton = __webpack_require__(/*! ./RaisedButton */ 431);
-	
-	var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
-	
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { default: obj };
-	}
-	
-	exports.default = _RaisedButton2.default;
-
-/***/ },
-/* 431 */
-/*!****************************************************!*\
-  !*** ./~/material-ui/RaisedButton/RaisedButton.js ***!
-  \****************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _extends2 = __webpack_require__(/*! babel-runtime/helpers/extends */ 326);
-	
-	var _extends3 = _interopRequireDefault(_extends2);
-	
-	var _objectWithoutProperties2 = __webpack_require__(/*! babel-runtime/helpers/objectWithoutProperties */ 331);
-	
-	var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
-	
-	var _getPrototypeOf = __webpack_require__(/*! babel-runtime/core-js/object/get-prototype-of */ 308);
-	
-	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-	
-	var _classCallCheck2 = __webpack_require__(/*! babel-runtime/helpers/classCallCheck */ 305);
-	
-	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-	
-	var _createClass2 = __webpack_require__(/*! babel-runtime/helpers/createClass */ 311);
-	
-	var _createClass3 = _interopRequireDefault(_createClass2);
-	
-	var _possibleConstructorReturn2 = __webpack_require__(/*! babel-runtime/helpers/possibleConstructorReturn */ 315);
-	
-	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-	
-	var _inherits2 = __webpack_require__(/*! babel-runtime/helpers/inherits */ 316);
-	
-	var _inherits3 = _interopRequireDefault(_inherits2);
-	
-	var _simpleAssign = __webpack_require__(/*! simple-assign */ 332);
-	
-	var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _transitions = __webpack_require__(/*! ../styles/transitions */ 335);
-	
-	var _transitions2 = _interopRequireDefault(_transitions);
-	
-	var _colorManipulator = __webpack_require__(/*! ../utils/colorManipulator */ 235);
-	
-	var _childUtils = __webpack_require__(/*! ../utils/childUtils */ 338);
-	
-	var _EnhancedButton = __webpack_require__(/*! ../internal/EnhancedButton */ 337);
-	
-	var _EnhancedButton2 = _interopRequireDefault(_EnhancedButton);
-	
-	var _Paper = __webpack_require__(/*! ../Paper */ 370);
-	
-	var _Paper2 = _interopRequireDefault(_Paper);
-	
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { default: obj };
-	}
-	
-	function validateLabel(props, propName, componentName) {
-	  if (process.env.NODE_ENV !== 'production') {
-	    if (!props.children && props.label !== 0 && !props.label && !props.icon) {
-	      return new Error('Required prop label or children or icon was not specified in ' + componentName + '.');
-	    }
-	  }
-	}
-	
-	function getStyles(props, context, state) {
-	  var _context$muiTheme = context.muiTheme;
-	  var baseTheme = _context$muiTheme.baseTheme;
-	  var button = _context$muiTheme.button;
-	  var raisedButton = _context$muiTheme.raisedButton;
-	  var disabled = props.disabled;
-	  var disabledBackgroundColor = props.disabledBackgroundColor;
-	  var disabledLabelColor = props.disabledLabelColor;
-	  var fullWidth = props.fullWidth;
-	  var icon = props.icon;
-	  var label = props.label;
-	  var labelPosition = props.labelPosition;
-	  var primary = props.primary;
-	  var secondary = props.secondary;
-	  var style = props.style;
-	
-	  var amount = primary || secondary ? 0.4 : 0.08;
-	
-	  var backgroundColor = raisedButton.color;
-	  var labelColor = raisedButton.textColor;
-	
-	  if (disabled) {
-	    backgroundColor = disabledBackgroundColor || raisedButton.disabledColor;
-	    labelColor = disabledLabelColor || raisedButton.disabledTextColor;
-	  } else if (primary) {
-	    backgroundColor = raisedButton.primaryColor;
-	    labelColor = raisedButton.primaryTextColor;
-	  } else if (secondary) {
-	    backgroundColor = raisedButton.secondaryColor;
-	    labelColor = raisedButton.secondaryTextColor;
-	  } else {
-	    if (props.backgroundColor) {
-	      backgroundColor = props.backgroundColor;
-	    }
-	    if (props.labelColor) {
-	      labelColor = props.labelColor;
-	    }
-	  }
-	
-	  var buttonHeight = style && style.height || button.height;
-	  var borderRadius = 2;
-	
-	  return {
-	    root: {
-	      display: 'inline-block',
-	      transition: _transitions2.default.easeOut(),
-	      minWidth: fullWidth ? '100%' : button.minWidth
-	    },
-	    button: {
-	      position: 'relative',
-	      height: buttonHeight,
-	      lineHeight: buttonHeight + 'px',
-	      width: '100%',
-	      padding: 0,
-	      borderRadius: borderRadius,
-	      transition: _transitions2.default.easeOut(),
-	      backgroundColor: backgroundColor,
-	      // That's the default value for a button but not a link
-	      textAlign: 'center'
-	    },
-	    label: {
-	      position: 'relative',
-	      opacity: 1,
-	      fontSize: raisedButton.fontSize,
-	      letterSpacing: 0,
-	      textTransform: raisedButton.textTransform || button.textTransform || 'uppercase',
-	      fontWeight: raisedButton.fontWeight,
-	      margin: 0,
-	      userSelect: 'none',
-	      paddingLeft: icon && labelPosition !== 'before' ? 8 : baseTheme.spacing.desktopGutterLess,
-	      paddingRight: icon && labelPosition === 'before' ? 8 : baseTheme.spacing.desktopGutterLess,
-	      color: labelColor
-	    },
-	    icon: {
-	      verticalAlign: 'middle',
-	      marginLeft: label && labelPosition !== 'before' ? 12 : 0,
-	      marginRight: label && labelPosition === 'before' ? 12 : 0
-	    },
-	    overlay: {
-	      height: buttonHeight,
-	      borderRadius: borderRadius,
-	      backgroundColor: (state.keyboardFocused || state.hovered) && !disabled && (0, _colorManipulator.fade)(labelColor, amount),
-	      transition: _transitions2.default.easeOut(),
-	      top: 0
-	    },
-	    ripple: {
-	      color: labelColor,
-	      opacity: !(primary || secondary) ? 0.1 : 0.16
-	    }
-	  };
-	}
-	
-	var RaisedButton = function (_Component) {
-	  (0, _inherits3.default)(RaisedButton, _Component);
-	
-	  function RaisedButton() {
-	    var _ref;
-	
-	    var _temp, _this, _ret;
-	
-	    (0, _classCallCheck3.default)(this, RaisedButton);
-	
-	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
-	
-	    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = RaisedButton.__proto__ || (0, _getPrototypeOf2.default)(RaisedButton)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-	      hovered: false,
-	      keyboardFocused: false,
-	      touched: false,
-	      initialZDepth: 0,
-	      zDepth: 0
-	    }, _this.handleMouseDown = function (event) {
-	      // only listen to left clicks
-	      if (event.button === 0) {
-	        _this.setState({
-	          zDepth: _this.state.initialZDepth + 1
-	        });
-	      }
-	      if (_this.props.onMouseDown) {
-	        _this.props.onMouseDown(event);
-	      }
-	    }, _this.handleMouseUp = function (event) {
-	      _this.setState({
-	        zDepth: _this.state.initialZDepth
-	      });
-	      if (_this.props.onMouseUp) {
-	        _this.props.onMouseUp(event);
-	      }
-	    }, _this.handleMouseLeave = function (event) {
-	      if (!_this.state.keyboardFocused) {
-	        _this.setState({
-	          zDepth: _this.state.initialZDepth,
-	          hovered: false
-	        });
-	      }
-	      if (_this.props.onMouseLeave) {
-	        _this.props.onMouseLeave(event);
-	      }
-	    }, _this.handleMouseEnter = function (event) {
-	      if (!_this.state.keyboardFocused && !_this.state.touched) {
-	        _this.setState({
-	          hovered: true
-	        });
-	      }
-	      if (_this.props.onMouseEnter) {
-	        _this.props.onMouseEnter(event);
-	      }
-	    }, _this.handleTouchStart = function (event) {
-	      _this.setState({
-	        touched: true,
-	        zDepth: _this.state.initialZDepth + 1
-	      });
-	
-	      if (_this.props.onTouchStart) {
-	        _this.props.onTouchStart(event);
-	      }
-	    }, _this.handleTouchEnd = function (event) {
-	      _this.setState({
-	        zDepth: _this.state.initialZDepth
-	      });
-	
-	      if (_this.props.onTouchEnd) {
-	        _this.props.onTouchEnd(event);
-	      }
-	    }, _this.handleKeyboardFocus = function (event, keyboardFocused) {
-	      var zDepth = keyboardFocused && !_this.props.disabled ? _this.state.initialZDepth + 1 : _this.state.initialZDepth;
-	
-	      _this.setState({
-	        zDepth: zDepth,
-	        keyboardFocused: keyboardFocused
-	      });
-	    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
-	  }
-	
-	  (0, _createClass3.default)(RaisedButton, [{
-	    key: 'componentWillMount',
-	    value: function componentWillMount() {
-	      var zDepth = this.props.disabled ? 0 : 1;
-	      this.setState({
-	        zDepth: zDepth,
-	        initialZDepth: zDepth
-	      });
-	    }
-	  }, {
-	    key: 'componentWillReceiveProps',
-	    value: function componentWillReceiveProps(nextProps) {
-	      var zDepth = nextProps.disabled ? 0 : 1;
-	      var nextState = {
-	        zDepth: zDepth,
-	        initialZDepth: zDepth
-	      };
-	
-	      if (nextProps.disabled) {
-	        nextState.hovered = false;
-	      }
-	
-	      this.setState(nextState);
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _props = this.props;
-	      var backgroundColor = _props.backgroundColor;
-	      var buttonStyle = _props.buttonStyle;
-	      var children = _props.children;
-	      var className = _props.className;
-	      var disabled = _props.disabled;
-	      var disabledBackgroundColor = _props.disabledBackgroundColor;
-	      var disabledLabelColor = _props.disabledLabelColor;
-	      var fullWidth = _props.fullWidth;
-	      var icon = _props.icon;
-	      var label = _props.label;
-	      var labelColor = _props.labelColor;
-	      var labelPosition = _props.labelPosition;
-	      var labelStyle = _props.labelStyle;
-	      var overlayStyle = _props.overlayStyle;
-	      var primary = _props.primary;
-	      var rippleStyle = _props.rippleStyle;
-	      var secondary = _props.secondary;
-	      var style = _props.style;
-	      var other = (0, _objectWithoutProperties3.default)(_props, ['backgroundColor', 'buttonStyle', 'children', 'className', 'disabled', 'disabledBackgroundColor', 'disabledLabelColor', 'fullWidth', 'icon', 'label', 'labelColor', 'labelPosition', 'labelStyle', 'overlayStyle', 'primary', 'rippleStyle', 'secondary', 'style']);
-	      var prepareStyles = this.context.muiTheme.prepareStyles;
-	
-	      var styles = getStyles(this.props, this.context, this.state);
-	      var mergedRippleStyles = (0, _simpleAssign2.default)({}, styles.ripple, rippleStyle);
-	
-	      var buttonEventHandlers = disabled ? {} : {
-	        onMouseDown: this.handleMouseDown,
-	        onMouseUp: this.handleMouseUp,
-	        onMouseLeave: this.handleMouseLeave,
-	        onMouseEnter: this.handleMouseEnter,
-	        onTouchStart: this.handleTouchStart,
-	        onTouchEnd: this.handleTouchEnd,
-	        onKeyboardFocus: this.handleKeyboardFocus
-	      };
-	
-	      var labelElement = label && _react2.default.createElement('span', { style: prepareStyles((0, _simpleAssign2.default)(styles.label, labelStyle)) }, label);
-	
-	      var iconCloned = icon && (0, _react.cloneElement)(icon, {
-	        color: icon.props.color || styles.label.color,
-	        style: (0, _simpleAssign2.default)(styles.icon, icon.props.style)
-	      });
-	
-	      // Place label before or after children.
-	      var childrenFragment = labelPosition === 'before' ? {
-	        labelElement: labelElement,
-	        iconCloned: iconCloned,
-	        children: children
-	      } : {
-	        children: children,
-	        iconCloned: iconCloned,
-	        labelElement: labelElement
-	      };
-	
-	      var enhancedButtonChildren = (0, _childUtils.createChildFragment)(childrenFragment);
-	
-	      return _react2.default.createElement(_Paper2.default, {
-	        className: className,
-	        style: (0, _simpleAssign2.default)(styles.root, style),
-	        zDepth: this.state.zDepth
-	      }, _react2.default.createElement(_EnhancedButton2.default, (0, _extends3.default)({}, other, buttonEventHandlers, {
-	        ref: 'container',
-	        disabled: disabled,
-	        style: (0, _simpleAssign2.default)(styles.button, buttonStyle),
-	        focusRippleColor: mergedRippleStyles.color,
-	        touchRippleColor: mergedRippleStyles.color,
-	        focusRippleOpacity: mergedRippleStyles.opacity,
-	        touchRippleOpacity: mergedRippleStyles.opacity
-	      }), _react2.default.createElement('div', {
-	        ref: 'overlay',
-	        style: prepareStyles((0, _simpleAssign2.default)(styles.overlay, overlayStyle))
-	      }, enhancedButtonChildren)));
-	    }
-	  }]);
-	  return RaisedButton;
-	}(_react.Component);
-	
-	RaisedButton.muiName = 'RaisedButton';
-	RaisedButton.defaultProps = {
-	  disabled: false,
-	  labelPosition: 'after',
-	  fullWidth: false,
-	  primary: false,
-	  secondary: false
-	};
-	RaisedButton.contextTypes = {
-	  muiTheme: _react.PropTypes.object.isRequired
-	};
-	process.env.NODE_ENV !== "production" ? RaisedButton.propTypes = {
-	  /**
-	   * Override the default background color for the button,
-	   * but not the default disabled background color
-	   * (use `disabledBackgroundColor` for this).
-	   */
-	  backgroundColor: _react.PropTypes.string,
-	  /**
-	   * Override the inline-styles of the button element.
-	   */
-	  buttonStyle: _react.PropTypes.object,
-	  /**
-	   * The content of the button.
-	   * If a label is provided via the `label` prop, the text within the label
-	   * will be displayed in addition to the content provided here.
-	   */
-	  children: _react.PropTypes.node,
-	  /**
-	   * The CSS class name of the root element.
-	   */
-	  className: _react.PropTypes.string,
-	  /**
-	   * If true, the button will be disabled.
-	   */
-	  disabled: _react.PropTypes.bool,
-	  /**
-	   * Override the default background color for the button
-	   * when it is disabled.
-	   */
-	  disabledBackgroundColor: _react.PropTypes.string,
-	  /**
-	   * The color of the button's label when the button is disabled.
-	   */
-	  disabledLabelColor: _react.PropTypes.string,
-	  /**
-	   * If true, the button will take up the full width of its container.
-	   */
-	  fullWidth: _react.PropTypes.bool,
-	  /**
-	   * The URL to link to when the button is clicked.
-	   */
-	  href: _react.PropTypes.string,
-	  /**
-	   * An icon to be displayed within the button.
-	   */
-	  icon: _react.PropTypes.node,
-	  /**
-	   * The label to be displayed within the button.
-	   * If content is provided via the `children` prop, that content will be
-	   * displayed in addition to the label provided here.
-	   */
-	  label: validateLabel,
-	  /**
-	   * The color of the button's label.
-	   */
-	  labelColor: _react.PropTypes.string,
-	  /**
-	   * The position of the button's label relative to the button's `children`.
-	   */
-	  labelPosition: _react.PropTypes.oneOf(['before', 'after']),
-	  /**
-	   * Override the inline-styles of the button's label element.
-	   */
-	  labelStyle: _react.PropTypes.object,
-	  /** @ignore */
-	  onMouseDown: _react.PropTypes.func,
-	  /** @ignore */
-	  onMouseEnter: _react.PropTypes.func,
-	  /** @ignore */
-	  onMouseLeave: _react.PropTypes.func,
-	  /** @ignore */
-	  onMouseUp: _react.PropTypes.func,
-	  /** @ignore */
-	  onTouchEnd: _react.PropTypes.func,
-	  /** @ignore */
-	  onTouchStart: _react.PropTypes.func,
-	  /**
-	   * Override the inline style of the button overlay.
-	   */
-	  overlayStyle: _react.PropTypes.object,
-	  /**
-	   * If true, the button will use the theme's primary color.
-	   */
-	  primary: _react.PropTypes.bool,
-	  /**
-	   * Override the inline style of the ripple element.
-	   */
-	  rippleStyle: _react.PropTypes.object,
-	  /**
-	   * If true, the button will use the theme's secondary color.
-	   * If both `secondary` and `primary` are true, the button will use
-	   * the theme's primary color.
-	   */
-	  secondary: _react.PropTypes.bool,
-	  /**
-	   * Override the inline-styles of the root element.
-	   */
-	  style: _react.PropTypes.object
-	} : void 0;
-	exports.default = RaisedButton;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
-
-/***/ },
+/* 430 */,
+/* 431 */,
 /* 432 */
 /*!*************************************!*\
   !*** ./~/material-ui/Card/index.js ***!
@@ -43675,6 +43160,127 @@
 	}(_react2.default.Component);
 	
 	exports.default = AboutView;
+
+/***/ },
+/* 446 */
+/*!****************************!*\
+  !*** ./src/ImageDialog.js ***!
+  \****************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Dialog = __webpack_require__(/*! material-ui/Dialog */ 417);
+	
+	var _Dialog2 = _interopRequireDefault(_Dialog);
+	
+	var _FlatButton = __webpack_require__(/*! material-ui/FlatButton */ 427);
+	
+	var _FlatButton2 = _interopRequireDefault(_FlatButton);
+	
+	var _ImageViewer = __webpack_require__(/*! ./ImageViewer */ 416);
+	
+	var _ImageViewer2 = _interopRequireDefault(_ImageViewer);
+	
+	var _Card = __webpack_require__(/*! material-ui/Card */ 432);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var styles = {
+	  root: {
+	    position: 'fixed'
+	  },
+	  content: {
+	    position: 'fixed',
+	    top: 0,
+	    width: '100%',
+	    maxWidth: 'none',
+	    textAlign: 'center'
+	  },
+	  card: {
+	    display: 'inline-block',
+	    height: 'auto',
+	    width: 'auto',
+	    maxWidth: '100%',
+	    maxHeight: '100%'
+	  }
+	};
+	
+	var ImageDialog = function (_React$Component) {
+	  _inherits(ImageDialog, _React$Component);
+	
+	  function ImageDialog() {
+	    var _ref;
+	
+	    var _temp, _this, _ret;
+	
+	    _classCallCheck(this, ImageDialog);
+	
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+	
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ImageDialog.__proto__ || Object.getPrototypeOf(ImageDialog)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+	      open: false,
+	      imageUrl: '',
+	      imageDir: '',
+	      imageSize: 0
+	    }, _this.show = function (index, dir, size) {
+	      _this.setState({ open: true,
+	        imageUrl: dir + 'img-' + index + '.jpg',
+	        imageDir: dir,
+	        imageSize: size });
+	    }, _this.close = function () {
+	      _this.setState({ open: false });
+	    }, _temp), _possibleConstructorReturn(_this, _ret);
+	  }
+	
+	  _createClass(ImageDialog, [{
+	    key: 'render',
+	    value: function render() {
+	      var actions = [_react2.default.createElement(_FlatButton2.default, {
+	        label: '\u5173\u95ED',
+	        primary: true,
+	        onTouchTap: this.close
+	      })];
+	
+	      return _react2.default.createElement(
+	        'div',
+	        { style: styles.root },
+	        _react2.default.createElement(
+	          _Dialog2.default,
+	          {
+	            actions: actions,
+	            modal: true,
+	            contentStyle: styles.content,
+	            style: styles.content,
+	            open: this.state.open },
+	          _react2.default.createElement(_ImageViewer2.default, { url: this.state.imageUrl, dir: this.state.imageDir })
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return ImageDialog;
+	}(_react2.default.Component);
+	
+	exports.default = ImageDialog;
 
 /***/ }
 /******/ ]);

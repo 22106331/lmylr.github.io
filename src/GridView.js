@@ -3,7 +3,7 @@ import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import Subheader from 'material-ui/Subheader';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
-import ImageViewer from './ImageViewer';
+import ImageDialog from './ImageDialog';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import {Card, CardTitle, CardMedia} from 'material-ui/Card';/**CardActions, CardHeader, CardText */
@@ -36,28 +36,28 @@ class GridView extends React.Component {
 	
 	placeZero = (value)=>{
 		return (''+value).length==1?('0'+value):value;
-	}
+	};
 	
 	listImage = (dir, size)=>{
 		let data = [];
 		for(var i= 1; i<=size; i++){
 			data.push({
 				url: dir+'img-'+this.placeZero(i)+'-tn.jpg',
-				title: this.placeZero(i),
+				index: this.placeZero(i),
 				author: 'lmyooyo',
 			});
 		}
 		return data;
-	}
+	};
 	
-	show = (dir, image) => {
-		this.refs.dialog.show(dir, image);
-	}
+	show = (index, dir, size) => {
+		this.refs.dialog.show(index, dir, size);
+	};
 	
 	render() {
     return (
 		<div style={styles.root}>
-			<ImageViewer ref='dialog'/>
+			<ImageDialog ref='dialog'/>
 			<GridList
 				cols={3}
 				padding={20}
@@ -68,7 +68,7 @@ class GridView extends React.Component {
 							key={image.url}>
 							<Card
 								style={styles.card}
-								onTouchTap={()=>this.show(this.props.dir, image.url)}>
+								onTouchTap={()=>this.show(image.index, this.props.dir, this.props.size)}>
 								<CardMedia >
 									<img src={image.url}/>
 								</CardMedia>
