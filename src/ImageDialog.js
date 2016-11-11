@@ -35,6 +35,7 @@ class ImageDialog extends React.Component {
   show = (index, dir, size) => {
     this.setState(
 	{open: true,
+	 imageIndex:index,
 	 imageUrl:dir+'img-'+index+'.jpg',
 	 imageDir:dir,
 	 imageSize:size});
@@ -50,8 +51,7 @@ class ImageDialog extends React.Component {
         label="关闭"
         primary={true}
         onTouchTap={this.close}
-      />,
-    ];
+      />,];
 
     return (
       <div style={styles.root}>
@@ -61,7 +61,11 @@ class ImageDialog extends React.Component {
           contentStyle={styles.content}
           style={styles.content}
           open={this.state.open}>
-			<ImageViewer url={this.state.imageUrl} dir={this.state.imageDir}/>
+			<ImageViewer
+				url={this.state.imageUrl}
+				dir={this.state.imageDir}
+				index={this.state.imageIndex}
+				size={this.state.imageSize}/>
         </Dialog>
       </div>
     );

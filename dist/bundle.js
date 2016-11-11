@@ -39650,6 +39650,16 @@
 			width: 'auto',
 			maxWidth: '100%',
 			maxHeight: '100%'
+		},
+		preview: {
+			position: 'absolute',
+			top: '50%',
+			left: 0
+		},
+		next: {
+			position: 'absolute',
+			top: '50%',
+			right: 0
 		}
 	};
 	
@@ -39661,16 +39671,25 @@
 	
 			var _this = _possibleConstructorReturn(this, (ImageViewer.__proto__ || Object.getPrototypeOf(ImageViewer)).call(this, props));
 	
-			_this.listImage = function (dir, size) {
-				var data = [];
-				for (var i = 1; i <= size; i++) {
-					data.push({
-						url: dir + 'img-' + _this.placeZero(i) + '-tn.jpg',
-						title: _this.placeZero(i),
-						author: 'lmyooyo'
-					});
-				}
-				return data;
+			_this.state = {
+				curUrl: _this.props.url,
+				curIndex: parseInt(_this.props.index)
+			};
+	
+			_this.placeZero = function (value) {
+				return ('' + value).length == 1 ? '0' + value : value;
+			};
+	
+			_this.preview = function () {
+				if (_this.state.curIndex == 1) return;
+				_this.setState({ curUrl: _this.props.dir + 'img-' + _this.placeZero(_this.state.curIndex - 1) + '.jpg',
+					curIndex: _this.state.curIndex - 1 });
+			};
+	
+			_this.next = function () {
+				if (parseInt(_this.state.curIndex) >= parseInt(_this.props.size)) return;
+				_this.setState({ curUrl: _this.props.dir + 'img-' + _this.placeZero(parseInt(_this.state.curIndex) + 1) + '.jpg',
+					curIndex: parseInt(_this.state.curIndex) + 1 });
 			};
 	
 			return _this;
@@ -39679,10 +39698,26 @@
 		_createClass(ImageViewer, [{
 			key: 'render',
 			value: function render() {
+				var _this2 = this;
+	
 				return _react2.default.createElement(
 					'div',
 					{ style: styles.root },
-					_react2.default.createElement('img', { src: this.props.url, style: styles.card })
+					_react2.default.createElement(
+						'button',
+						{ style: styles.preview, onClick: function onClick() {
+								return _this2.preview();
+							} },
+						'\u4E0A\u4E00\u5F20'
+					),
+					_react2.default.createElement(
+						'button',
+						{ style: styles.next, onClick: function onClick() {
+								return _this2.next();
+							} },
+						'\u4E0B\u4E00\u5F20'
+					),
+					_react2.default.createElement('img', { src: this.state.curUrl, style: styles.card })
 				);
 			}
 		}]);
@@ -43243,6 +43278,7 @@
 	      imageSize: 0
 	    }, _this.show = function (index, dir, size) {
 	      _this.setState({ open: true,
+	        imageIndex: index,
 	        imageUrl: dir + 'img-' + index + '.jpg',
 	        imageDir: dir,
 	        imageSize: size });
@@ -43271,7 +43307,11 @@
 	            contentStyle: styles.content,
 	            style: styles.content,
 	            open: this.state.open },
-	          _react2.default.createElement(_ImageViewer2.default, { url: this.state.imageUrl, dir: this.state.imageDir })
+	          _react2.default.createElement(_ImageViewer2.default, {
+	            url: this.state.imageUrl,
+	            dir: this.state.imageDir,
+	            index: this.state.imageIndex,
+	            size: this.state.imageSize })
 	        )
 	      );
 	    }
