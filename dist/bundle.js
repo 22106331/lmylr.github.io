@@ -90,6 +90,9 @@
 			position: 'fixed',
 			top: '0',
 			left: '0'
+		},
+		logo: {
+			paddingLeft: 15
 		}
 	};
 	
@@ -100,7 +103,9 @@
 			_react2.default.createElement(
 				'view',
 				null,
-				_react2.default.createElement(_AppBar2.default, { title: '\u535A\u5BA2', style: styles.bar }),
+				_react2.default.createElement(_AppBar2.default, {
+					title: '\u535A\u5BA2', style: styles.bar,
+					iconElementLeft: _react2.default.createElement('img', { src: './img/logo.png', width: '45', height: '45', style: styles.logo }) }),
 				_react2.default.createElement(_AppBottomNavigation2.default, null)
 			)
 		);

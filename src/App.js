@@ -15,12 +15,17 @@ const styles = {
 	top:'0',
 	left:'0',
   },
+  logo: {
+	  paddingLeft: 15,
+  },
 };
 
 const App = () => (
 	<MuiThemeProvider muiTheme={getMuiTheme()}>
 		<view>
-			<AppBar title="博客" style={styles.bar}/>
+			<AppBar
+				title='博客' style={styles.bar}
+				iconElementLeft={<img src="./img/logo.png" width="45" height="45" style={styles.logo}/>}/>
 			<AppBottomNavigation />
 		</view>
 	</MuiThemeProvider>
