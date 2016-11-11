@@ -1,4 +1,5 @@
 import React from 'react';
+import SwipeableViews from 'react-swipeable-views';
 
 const styles = {
   root: {
@@ -55,32 +56,56 @@ class ImageViewer extends React.Component {
 	};
 	state = {
 		curUrl: this.props.url,
-		curIndex: parseInt(this.props.index),
+		curIndex: (parseInt(this.props.index)-1),
 	};
 	placeZero = (value)=>{
 		return (''+value).length==1?('0'+value):value;
 	};
 	
 	preview = () =>{
-		if(this.state.curIndex==1) return;
-		this.setState(
-		{curUrl: this.props.dir+'img-'+this.placeZero((this.state.curIndex-1))+'.jpg',
-		curIndex: (this.state.curIndex-1),});
+		if(this.state.curIndex==0) return;
+		this.setState({
+		  curIndex: (this.state.curIndex-1),
+		});
 	};
 	
 	next = () =>{
-		if(parseInt(this.state.curIndex)>=parseInt(this.props.size)) return;
-		this.setState(
-		{curUrl: this.props.dir+'img-'+this.placeZero(parseInt(this.state.curIndex)+1)+'.jpg',
-		curIndex: (parseInt(this.state.curIndex)+1),});
+		if(parseInt(this.state.curIndex)>=(parseInt(this.props.size)-1)) return;
+		this.setState({
+		  curIndex: (this.state.curIndex+1),
+		});
 	};
+	
+	listImage = (dir, size)=>{
+		let data = [];
+		for(var i= 1; i<=size; i++){
+			data.push({
+				url: dir+'img-'+this.placeZero(i)+'.jpg',
+				index: this.placeZero(i),
+				author: 'lmyooyo',
+			});
+		}
+		return data;
+	};
+	
+  handleChange = (value) => {
+    this.setState({
+      curIndex: value,
+    });
+  };
 
   render() {
     return (
       <div style={styles.root}>
+		<SwipeableViews
+			index={this.state.curIndex}
+			onChangeIndex={this.handleChange} >
+			{this.listImage(this.props.dir,this.props.size).map((image) => (
+				<img src={image.url} style={styles.card}/>
+			))}
+		</SwipeableViews>
 		<div style={styles.preview} onTouchTap={()=>this.preview()}><div style={styles.icon}>&lt;</div></div>
 		<div style={styles.next} onTouchTap={()=>this.next()}><div style={styles.icon}>&gt;</div></div>
-		<img src={this.state.curUrl} style={styles.card}/>
       </div>
     );
   }

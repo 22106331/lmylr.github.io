@@ -39633,6 +39633,10 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactSwipeableViews = __webpack_require__(/*! react-swipeable-views */ 381);
+	
+	var _reactSwipeableViews2 = _interopRequireDefault(_reactSwipeableViews);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -39699,7 +39703,7 @@
 	
 			_this.state = {
 				curUrl: _this.props.url,
-				curIndex: parseInt(_this.props.index)
+				curIndex: parseInt(_this.props.index) - 1
 			};
 	
 			_this.placeZero = function (value) {
@@ -39707,15 +39711,35 @@
 			};
 	
 			_this.preview = function () {
-				if (_this.state.curIndex == 1) return;
-				_this.setState({ curUrl: _this.props.dir + 'img-' + _this.placeZero(_this.state.curIndex - 1) + '.jpg',
-					curIndex: _this.state.curIndex - 1 });
+				if (_this.state.curIndex == 0) return;
+				_this.setState({
+					curIndex: _this.state.curIndex - 1
+				});
 			};
 	
 			_this.next = function () {
-				if (parseInt(_this.state.curIndex) >= parseInt(_this.props.size)) return;
-				_this.setState({ curUrl: _this.props.dir + 'img-' + _this.placeZero(parseInt(_this.state.curIndex) + 1) + '.jpg',
-					curIndex: parseInt(_this.state.curIndex) + 1 });
+				if (parseInt(_this.state.curIndex) >= parseInt(_this.props.size) - 1) return;
+				_this.setState({
+					curIndex: _this.state.curIndex + 1
+				});
+			};
+	
+			_this.listImage = function (dir, size) {
+				var data = [];
+				for (var i = 1; i <= size; i++) {
+					data.push({
+						url: dir + 'img-' + _this.placeZero(i) + '.jpg',
+						index: _this.placeZero(i),
+						author: 'lmyooyo'
+					});
+				}
+				return data;
+			};
+	
+			_this.handleChange = function (value) {
+				_this.setState({
+					curIndex: value
+				});
 			};
 	
 			return _this;
@@ -39729,6 +39753,15 @@
 				return _react2.default.createElement(
 					'div',
 					{ style: styles.root },
+					_react2.default.createElement(
+						_reactSwipeableViews2.default,
+						{
+							index: this.state.curIndex,
+							onChangeIndex: this.handleChange },
+						this.listImage(this.props.dir, this.props.size).map(function (image) {
+							return _react2.default.createElement('img', { src: image.url, style: styles.card });
+						})
+					),
 					_react2.default.createElement(
 						'div',
 						{ style: styles.preview, onTouchTap: function onTouchTap() {
@@ -39750,8 +39783,7 @@
 							{ style: styles.icon },
 							'>'
 						)
-					),
-					_react2.default.createElement('img', { src: this.state.curUrl, style: styles.card })
+					)
 				);
 			}
 		}]);
