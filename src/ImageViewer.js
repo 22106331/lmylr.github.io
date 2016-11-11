@@ -2,11 +2,12 @@ import React from 'react';
 
 const styles = {
   root: {
+	  height: '100%',
+	  width: '100%',
   },
   content: {
   },
   card: {
-	  display: 'inline-block',
 	  height: 'auto',
 	  width: 'auto',
 	  maxWidth: '100%',
@@ -42,6 +43,10 @@ const styles = {
 	filter:'alpha(opacity:30)',
 	opacity:'0.3',
   },
+  icon:{
+	marginTop: 'auto',
+	marginBottom: 'auto',
+  }
 };
 
 class ImageViewer extends React.Component {
@@ -73,8 +78,8 @@ class ImageViewer extends React.Component {
   render() {
     return (
       <div style={styles.root}>
-		<div style={styles.preview} onClick={()=>this.preview()}>&lt;</div>
-		<div style={styles.next} onClick={()=>this.next()}>&gt;</div>
+		<div style={styles.preview} onClick={()=>this.preview()}><div style={styles.icon}>&lt;</div></div>
+		<div style={styles.next} onClick={()=>this.next()}><div style={styles.icon}>&gt;</div></div>
 		<img src={this.state.curUrl} style={styles.card}/>
       </div>
     );

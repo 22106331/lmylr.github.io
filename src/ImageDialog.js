@@ -11,6 +11,8 @@ const styles = {
   content: {
 	position:'fixed',
 	top:0,
+	padding:2,
+	paddingRight: 7,
 	width: '100%',
 	maxWidth: 'none',
 	textAlign: 'center',
@@ -21,6 +23,11 @@ const styles = {
 	  width: 'auto',
 	  maxWidth: '100%',
 	  maxHeight: '100%',
+  },
+  body: {
+	  paddingTop: 10,
+	  paddingLeft: 0,
+	  paddingRight: 0,
   },
 };
 
@@ -60,6 +67,7 @@ class ImageDialog extends React.Component {
           modal={true}
           contentStyle={styles.content}
           style={styles.content}
+          bodyStyle={styles.body}
           open={this.state.open}>
 			<ImageViewer
 				url={this.state.imageUrl}

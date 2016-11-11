@@ -39642,10 +39642,12 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var styles = {
-		root: {},
+		root: {
+			height: '100%',
+			width: '100%'
+		},
 		content: {},
 		card: {
-			display: 'inline-block',
 			height: 'auto',
 			width: 'auto',
 			maxWidth: '100%',
@@ -39680,6 +39682,10 @@
 			background: '#000000',
 			filter: 'alpha(opacity:30)',
 			opacity: '0.3'
+		},
+		icon: {
+			marginTop: 'auto',
+			marginBottom: 'auto'
 		}
 	};
 	
@@ -39728,14 +39734,22 @@
 						{ style: styles.preview, onClick: function onClick() {
 								return _this2.preview();
 							} },
-						'<'
+						_react2.default.createElement(
+							'div',
+							{ style: styles.icon },
+							'<'
+						)
 					),
 					_react2.default.createElement(
 						'div',
 						{ style: styles.next, onClick: function onClick() {
 								return _this2.next();
 							} },
-						'>'
+						_react2.default.createElement(
+							'div',
+							{ style: styles.icon },
+							'>'
+						)
 					),
 					_react2.default.createElement('img', { src: this.state.curUrl, style: styles.card })
 				);
@@ -43264,6 +43278,8 @@
 	  content: {
 	    position: 'fixed',
 	    top: 0,
+	    padding: 2,
+	    paddingRight: 7,
 	    width: '100%',
 	    maxWidth: 'none',
 	    textAlign: 'center'
@@ -43274,6 +43290,11 @@
 	    width: 'auto',
 	    maxWidth: '100%',
 	    maxHeight: '100%'
+	  },
+	  body: {
+	    paddingTop: 10,
+	    paddingLeft: 0,
+	    paddingRight: 0
 	  }
 	};
 	
@@ -43326,6 +43347,7 @@
 	            modal: true,
 	            contentStyle: styles.content,
 	            style: styles.content,
+	            bodyStyle: styles.body,
 	            open: this.state.open },
 	          _react2.default.createElement(_ImageViewer2.default, {
 	            url: this.state.imageUrl,
