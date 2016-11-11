@@ -24,7 +24,7 @@ const styles = {
   },
   card: {
 	  cursor: 'pointer',
-	  paddingTop: 5,
+	  paddingTop: 2,
 	  paddingBottom: 10,
   },
 };

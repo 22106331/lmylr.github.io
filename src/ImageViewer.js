@@ -78,8 +78,8 @@ class ImageViewer extends React.Component {
   render() {
     return (
       <div style={styles.root}>
-		<div style={styles.preview} onClick={()=>this.preview()}><div style={styles.icon}>&lt;</div></div>
-		<div style={styles.next} onClick={()=>this.next()}><div style={styles.icon}>&gt;</div></div>
+		<div style={styles.preview} onTouchTap={()=>this.preview()}><div style={styles.icon}>&lt;</div></div>
+		<div style={styles.next} onTouchTap={()=>this.next()}><div style={styles.icon}>&gt;</div></div>
 		<img src={this.state.curUrl} style={styles.card}/>
       </div>
     );

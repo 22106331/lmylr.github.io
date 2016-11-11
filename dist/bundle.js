@@ -38895,7 +38895,7 @@
 		},
 		card: {
 			cursor: 'pointer',
-			paddingTop: 5,
+			paddingTop: 2,
 			paddingBottom: 10
 		}
 	};
@@ -39731,7 +39731,7 @@
 					{ style: styles.root },
 					_react2.default.createElement(
 						'div',
-						{ style: styles.preview, onClick: function onClick() {
+						{ style: styles.preview, onTouchTap: function onTouchTap() {
 								return _this2.preview();
 							} },
 						_react2.default.createElement(
@@ -39742,7 +39742,7 @@
 					),
 					_react2.default.createElement(
 						'div',
-						{ style: styles.next, onClick: function onClick() {
+						{ style: styles.next, onTouchTap: function onTouchTap() {
 								return _this2.next();
 							} },
 						_react2.default.createElement(
