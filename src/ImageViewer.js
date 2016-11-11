@@ -94,8 +94,8 @@ class ImageViewer extends React.Component {
       <div style={styles.root}>
 		<SwipeableViews
 			index={this.state.curIndex}
-			onChangeIndex={this.handleChange}
-			style={styles.content}			>
+			style={styles.content}
+			onChangeIndex={this.handleChange}>
 			{this.listImage(this.props.dir,this.props.size).map((image) => (
 				<img src={image.url} style={styles.card}/>
 			))}

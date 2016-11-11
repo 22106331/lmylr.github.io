@@ -39763,8 +39763,8 @@
 						_reactSwipeableViews2.default,
 						{
 							index: this.state.curIndex,
-							onChangeIndex: this.handleChange,
-							style: styles.content },
+							style: styles.content,
+							onChangeIndex: this.handleChange },
 						this.listImage(this.props.dir, this.props.size).map(function (image) {
 							return _react2.default.createElement('img', { src: image.url, style: styles.card });
 						})
