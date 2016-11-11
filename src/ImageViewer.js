@@ -13,14 +13,34 @@ const styles = {
 	  maxHeight: '100%',
   },
   preview: {
+	width: '5%',
+	height: '15%',
+	maxWidth: 50,
+	maxHeight: 120,
+	cursor: 'pointer',
     position: 'absolute',
-	top: '50%',
+	top: '42%',
 	left: 0,
+	textAlign: 'center',
+	color:'#fff',
+	background: '#000000',
+	filter:'alpha(opacity:30)',
+	opacity:'0.3',
   },
   next: {
+	width: '5%',
+	height: '15%',
+	maxWidth: 50,
+	maxHeight: 120,
+	cursor: 'pointer',
     position: 'absolute',
-	top: '50%',
+	top: '42%',
 	right:0,
+	textAlign: 'center',
+	color:'#fff',
+	background: '#000000',
+	filter:'alpha(opacity:30)',
+	opacity:'0.3',
   },
 };
 
@@ -53,8 +73,8 @@ class ImageViewer extends React.Component {
   render() {
     return (
       <div style={styles.root}>
-		<button style={styles.preview} onClick={()=>this.preview()}>上一张</button>
-		<button style={styles.next} onClick={()=>this.next()}>下一张</button>
+		<div style={styles.preview} onClick={()=>this.preview()}>&lt;</div>
+		<div style={styles.next} onClick={()=>this.next()}>&gt;</div>
 		<img src={this.state.curUrl} style={styles.card}/>
       </div>
     );

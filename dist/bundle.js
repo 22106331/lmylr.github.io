@@ -39652,14 +39652,34 @@
 			maxHeight: '100%'
 		},
 		preview: {
+			width: '5%',
+			height: '15%',
+			maxWidth: 50,
+			maxHeight: 120,
+			cursor: 'pointer',
 			position: 'absolute',
-			top: '50%',
-			left: 0
+			top: '42%',
+			left: 0,
+			textAlign: 'center',
+			color: '#fff',
+			background: '#000000',
+			filter: 'alpha(opacity:30)',
+			opacity: '0.3'
 		},
 		next: {
+			width: '5%',
+			height: '15%',
+			maxWidth: 50,
+			maxHeight: 120,
+			cursor: 'pointer',
 			position: 'absolute',
-			top: '50%',
-			right: 0
+			top: '42%',
+			right: 0,
+			textAlign: 'center',
+			color: '#fff',
+			background: '#000000',
+			filter: 'alpha(opacity:30)',
+			opacity: '0.3'
 		}
 	};
 	
@@ -39704,18 +39724,18 @@
 					'div',
 					{ style: styles.root },
 					_react2.default.createElement(
-						'button',
+						'div',
 						{ style: styles.preview, onClick: function onClick() {
 								return _this2.preview();
 							} },
-						'\u4E0A\u4E00\u5F20'
+						'<'
 					),
 					_react2.default.createElement(
-						'button',
+						'div',
 						{ style: styles.next, onClick: function onClick() {
 								return _this2.next();
 							} },
-						'\u4E0B\u4E00\u5F20'
+						'>'
 					),
 					_react2.default.createElement('img', { src: this.state.curUrl, style: styles.card })
 				);
