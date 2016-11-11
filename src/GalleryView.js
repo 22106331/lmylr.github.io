@@ -19,6 +19,10 @@ const styles = {
 	top: 0,
     position: 'absolute',
   },
+  inkBar: {
+	  color: '#fff',
+	  background: '#fff',
+  },
 };
 
 class GalleryView extends React.Component {
@@ -41,6 +45,7 @@ class GalleryView extends React.Component {
 	  <img width='100%' src='./img/bg-gallery.jpg' style={styles.bg} />
 	  <view style={styles.content}>
 		  <Tabs
+		    inkBarStyle={styles.inkBar}
 			value={this.state.slideIndex}
 			onChange={this.handleChange} >
 			  <Tab label="广州YACA漫展" value={0}/>

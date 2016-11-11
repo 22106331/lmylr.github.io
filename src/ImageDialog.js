@@ -64,11 +64,12 @@ class ImageDialog extends React.Component {
       <div style={styles.root}>
         <Dialog
           actions={actions}
-          modal={true}
+          modal={false}
           contentStyle={styles.content}
           style={styles.content}
           bodyStyle={styles.body}
-          open={this.state.open}>
+          open={this.state.open}
+		  onRequestClose={this.close}>
 			<ImageViewer
 				url={this.state.imageUrl}
 				dir={this.state.imageDir}

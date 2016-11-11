@@ -38061,6 +38061,10 @@
 					left: 0,
 					top: 0,
 					position: 'absolute'
+			},
+			inkBar: {
+					color: '#fff',
+					background: '#fff'
 			}
 	};
 	
@@ -38097,6 +38101,7 @@
 											_react2.default.createElement(
 													_Tabs.Tabs,
 													{
+															inkBarStyle: styles.inkBar,
 															value: this.state.slideIndex,
 															onChange: this.handleChange },
 													_react2.default.createElement(_Tabs.Tab, { label: '\u5E7F\u5DDEYACA\u6F2B\u5C55', value: 0 }),
@@ -39650,7 +39655,11 @@
 			height: '100%',
 			width: '100%'
 		},
-		content: {},
+		content: {
+			marginTop: 'auto',
+			marginBottom: 'auto',
+			textAlign: 'center'
+		},
 		card: {
 			height: 'auto',
 			width: 'auto',
@@ -39749,7 +39758,8 @@
 						_reactSwipeableViews2.default,
 						{
 							index: this.state.curIndex,
-							onChangeIndex: this.handleChange },
+							onChangeIndex: this.handleChange,
+							style: styles.content },
 						this.listImage(this.props.dir, this.props.size).map(function (image) {
 							return _react2.default.createElement('img', { src: image.url, style: styles.card });
 						})
@@ -43352,11 +43362,12 @@
 	          _Dialog2.default,
 	          {
 	            actions: actions,
-	            modal: true,
+	            modal: false,
 	            contentStyle: styles.content,
 	            style: styles.content,
 	            bodyStyle: styles.body,
-	            open: this.state.open },
+	            open: this.state.open,
+	            onRequestClose: this.close },
 	          _react2.default.createElement(_ImageViewer2.default, {
 	            url: this.state.imageUrl,
 	            dir: this.state.imageDir,

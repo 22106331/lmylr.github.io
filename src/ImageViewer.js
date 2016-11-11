@@ -7,6 +7,9 @@ const styles = {
 	  width: '100%',
   },
   content: {
+	marginTop: 'auto',
+	marginBottom: 'auto',
+	textAlign: 'center',
   },
   card: {
 	  height: 'auto',
@@ -91,7 +94,8 @@ class ImageViewer extends React.Component {
       <div style={styles.root}>
 		<SwipeableViews
 			index={this.state.curIndex}
-			onChangeIndex={this.handleChange} >
+			onChangeIndex={this.handleChange}
+			style={styles.content}			>
 			{this.listImage(this.props.dir,this.props.size).map((image) => (
 				<img src={image.url} style={styles.card}/>
 			))}
