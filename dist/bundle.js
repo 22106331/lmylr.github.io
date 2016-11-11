@@ -39659,33 +39659,25 @@
 		},
 		preview: {
 			width: '5%',
-			height: '15%',
-			maxWidth: 50,
-			maxHeight: 120,
+			height: '100%',
+			maxWidth: 80,
 			cursor: 'pointer',
 			position: 'absolute',
-			top: '42%',
+			top: 0,
 			left: 0,
-			textAlign: 'center',
-			color: '#fff',
-			background: '#000000',
-			filter: 'alpha(opacity:30)',
-			opacity: '0.3'
+			filter: 'alpha(opacity:0)',
+			opacity: '0'
 		},
 		next: {
 			width: '5%',
-			height: '15%',
-			maxWidth: 50,
-			maxHeight: 120,
+			height: '100%',
+			maxWidth: 80,
 			cursor: 'pointer',
 			position: 'absolute',
-			top: '42%',
+			top: 0,
 			right: 0,
-			textAlign: 'center',
-			color: '#fff',
-			background: '#000000',
-			filter: 'alpha(opacity:30)',
-			opacity: '0.3'
+			filter: 'alpha(opacity:0)',
+			opacity: '0'
 		},
 		icon: {
 			marginTop: 'auto',
@@ -39762,28 +39754,12 @@
 							return _react2.default.createElement('img', { src: image.url, style: styles.card });
 						})
 					),
-					_react2.default.createElement(
-						'div',
-						{ style: styles.preview, onTouchTap: function onTouchTap() {
-								return _this2.preview();
-							} },
-						_react2.default.createElement(
-							'div',
-							{ style: styles.icon },
-							'<'
-						)
-					),
-					_react2.default.createElement(
-						'div',
-						{ style: styles.next, onTouchTap: function onTouchTap() {
-								return _this2.next();
-							} },
-						_react2.default.createElement(
-							'div',
-							{ style: styles.icon },
-							'>'
-						)
-					)
+					_react2.default.createElement('div', { style: styles.preview, onTouchTap: function onTouchTap() {
+							return _this2.preview();
+						} }),
+					_react2.default.createElement('div', { style: styles.next, onTouchTap: function onTouchTap() {
+							return _this2.next();
+						} })
 				);
 			}
 		}]);

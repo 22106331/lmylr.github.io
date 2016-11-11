@@ -16,33 +16,25 @@ const styles = {
   },
   preview: {
 	width: '5%',
-	height: '15%',
-	maxWidth: 50,
-	maxHeight: 120,
+	height: '100%',
+	maxWidth: 80,
 	cursor: 'pointer',
     position: 'absolute',
-	top: '42%',
+	top: 0,
 	left: 0,
-	textAlign: 'center',
-	color:'#fff',
-	background: '#000000',
-	filter:'alpha(opacity:30)',
-	opacity:'0.3',
+	filter:'alpha(opacity:0)',
+	opacity:'0',
   },
   next: {
 	width: '5%',
-	height: '15%',
-	maxWidth: 50,
-	maxHeight: 120,
+	height: '100%',
+	maxWidth: 80,
 	cursor: 'pointer',
     position: 'absolute',
-	top: '42%',
+	top: 0,
 	right:0,
-	textAlign: 'center',
-	color:'#fff',
-	background: '#000000',
-	filter:'alpha(opacity:30)',
-	opacity:'0.3',
+	filter:'alpha(opacity:0)',
+	opacity:'0',
   },
   icon:{
 	marginTop: 'auto',
@@ -104,8 +96,8 @@ class ImageViewer extends React.Component {
 				<img src={image.url} style={styles.card}/>
 			))}
 		</SwipeableViews>
-		<div style={styles.preview} onTouchTap={()=>this.preview()}><div style={styles.icon}>&lt;</div></div>
-		<div style={styles.next} onTouchTap={()=>this.next()}><div style={styles.icon}>&gt;</div></div>
+		<div style={styles.preview} onTouchTap={()=>this.preview()}></div>
+		<div style={styles.next} onTouchTap={()=>this.next()}></div>
       </div>
     );
   }
