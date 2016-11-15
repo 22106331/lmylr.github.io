@@ -34874,11 +34874,11 @@
 	
 	var _GalleryView2 = _interopRequireDefault(_GalleryView);
 	
-	var _VideoView = __webpack_require__(/*! ./VideoView */ 444);
+	var _VideoView = __webpack_require__(/*! ./VideoView */ 443);
 	
 	var _VideoView2 = _interopRequireDefault(_VideoView);
 	
-	var _AboutView = __webpack_require__(/*! ./AboutView */ 445);
+	var _AboutView = __webpack_require__(/*! ./AboutView */ 444);
 	
 	var _AboutView2 = _interopRequireDefault(_AboutView);
 	
@@ -37952,6 +37952,9 @@
 			marginLeft: 'auto',
 			marginRight: 'auto'
 		},
+		text1: {
+			marginRight: 32
+		},
 		pager: {
 			padding: 16,
 			marginTop: 32
@@ -37980,27 +37983,31 @@
 						_react2.default.createElement(
 							'div',
 							{ style: styles.text },
-							_react2.default.createElement('img', { src: './img/logo.png', width: '70', height: '70' }),
 							_react2.default.createElement(
-								_Paper2.default,
-								{ zDepth: 1, style: styles.pager },
+								'div',
+								{ style: styles.text1 },
+								_react2.default.createElement('img', { src: './img/logo.png', width: '70', height: '70' }),
 								_react2.default.createElement(
-									'h2',
-									null,
-									'Wellcome'
-								),
-								_react2.default.createElement(
-									'div',
-									null,
+									_Paper2.default,
+									{ zDepth: 1, style: styles.pager },
 									_react2.default.createElement(
-										'p',
+										'h2',
 										null,
-										'\u6B22\u8FCE\u5173\u6CE8\u6211\u7684\u535A\u5BA2\uFF0C\u540E\u7EED\u4F5C\u54C1\u4E0D\u65AD\u4E0A\u4F20\u4E2D\u3002'
+										'Wellcome'
 									),
 									_react2.default.createElement(
-										'p',
+										'div',
 										null,
-										'\u672C\u535A\u5BA2\u4EE5\u53CA\u5305\u542B\u672C\u4EBA\u6C34\u5370\u7684\u6240\u6709\u539F\u521B\u4F5C\u54C1\u7248\u6743\u5F52\u672C\u4EBA\u6240\u6709\uFF0C\u5982\u9700\u4F7F\u7528\u8BF7\u8054\u7CFB\u672C\u4EBA\uFF0C\u5426\u5219\u89C6\u4E3A\u4FB5\u6743\u3002\u5982\u679C\u535A\u5BA2\u4F5C\u54C1\u4E2D\u6E38\u4FB5\u6743\u884C\u4E3A\uFF0C\u6B22\u8FCE\u8054\u7CFB\u672C\u4EBA\u4E88\u4EE5\u5220\u9664\u3002'
+										_react2.default.createElement(
+											'p',
+											null,
+											'\u6B22\u8FCE\u5173\u6CE8\u6211\u7684\u535A\u5BA2\uFF0C\u540E\u7EED\u4F5C\u54C1\u4E0D\u65AD\u4E0A\u4F20\u4E2D\u3002'
+										),
+										_react2.default.createElement(
+											'p',
+											null,
+											'\u672C\u535A\u5BA2\u4EE5\u53CA\u5305\u542B\u672C\u4EBA\u6C34\u5370\u7684\u6240\u6709\u539F\u521B\u4F5C\u54C1\u7248\u6743\u5F52\u672C\u4EBA\u6240\u6709\uFF0C\u5982\u9700\u4F7F\u7528\u8BF7\u8054\u7CFB\u672C\u4EBA\uFF0C\u5426\u5219\u89C6\u4E3A\u4FB5\u6743\u3002\u5982\u679C\u535A\u5BA2\u4F5C\u54C1\u4E2D\u6E38\u4FB5\u6743\u884C\u4E3A\uFF0C\u6B22\u8FCE\u8054\u7CFB\u672C\u4EBA\u4E88\u4EE5\u5220\u9664\u3002'
+										)
 									)
 								)
 							)
@@ -38865,7 +38872,7 @@
 	
 	var _starBorder2 = _interopRequireDefault(_starBorder);
 	
-	var _ImageDialog = __webpack_require__(/*! ./ImageDialog */ 446);
+	var _ImageDialog = __webpack_require__(/*! ./ImageDialog */ 416);
 	
 	var _ImageDialog2 = _interopRequireDefault(_ImageDialog);
 	
@@ -38877,7 +38884,7 @@
 	
 	var _FlatButton2 = _interopRequireDefault(_FlatButton);
 	
-	var _Card = __webpack_require__(/*! material-ui/Card */ 432);
+	var _Card = __webpack_require__(/*! material-ui/Card */ 431);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -39627,14 +39634,14 @@
 /***/ },
 /* 416 */
 /*!****************************!*\
-  !*** ./src/ImageViewer.js ***!
+  !*** ./src/ImageDialog.js ***!
   \****************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -39643,9 +39650,19 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactSwipeableViews = __webpack_require__(/*! react-swipeable-views */ 381);
+	var _Dialog = __webpack_require__(/*! material-ui/Dialog */ 417);
 	
-	var _reactSwipeableViews2 = _interopRequireDefault(_reactSwipeableViews);
+	var _Dialog2 = _interopRequireDefault(_Dialog);
+	
+	var _FlatButton = __webpack_require__(/*! material-ui/FlatButton */ 427);
+	
+	var _FlatButton2 = _interopRequireDefault(_FlatButton);
+	
+	var _ImageViewer = __webpack_require__(/*! ./ImageViewer */ 430);
+	
+	var _ImageViewer2 = _interopRequireDefault(_ImageViewer);
+	
+	var _Card = __webpack_require__(/*! material-ui/Card */ 431);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -39656,133 +39673,98 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var styles = {
-		root: {
-			height: '100%',
-			width: '100%'
-		},
-		content: {
-			marginTop: 'auto',
-			marginBottom: 'auto',
-			textAlign: 'center'
-		},
-		card: {
-			height: 'auto',
-			width: 'auto',
-			maxWidth: '100%',
-			maxHeight: '100%'
-		},
-		preview: {
-			width: '5%',
-			height: '100%',
-			maxWidth: 80,
-			cursor: 'pointer',
-			position: 'absolute',
-			top: 0,
-			left: 0,
-			filter: 'alpha(opacity:0)',
-			opacity: '0'
-		},
-		next: {
-			width: '5%',
-			height: '100%',
-			maxWidth: 80,
-			cursor: 'pointer',
-			position: 'absolute',
-			top: 0,
-			right: 0,
-			filter: 'alpha(opacity:0)',
-			opacity: '0'
-		},
-		icon: {
-			marginTop: 'auto',
-			marginBottom: 'auto'
-		}
+	  root: {
+	    position: 'fixed'
+	  },
+	  content: {
+	    position: 'fixed',
+	    top: 0,
+	    padding: 2,
+	    paddingRight: 7,
+	    width: '100%',
+	    maxWidth: 'none',
+	    textAlign: 'center'
+	  },
+	  card: {
+	    display: 'inline-block',
+	    height: 'auto',
+	    width: 'auto',
+	    maxWidth: '100%',
+	    maxHeight: '100%'
+	  },
+	  body: {
+	    paddingTop: 10,
+	    paddingLeft: 0,
+	    paddingRight: 0
+	  }
 	};
 	
-	var ImageViewer = function (_React$Component) {
-		_inherits(ImageViewer, _React$Component);
+	var ImageDialog = function (_React$Component) {
+	  _inherits(ImageDialog, _React$Component);
 	
-		function ImageViewer(props) {
-			_classCallCheck(this, ImageViewer);
+	  function ImageDialog() {
+	    var _ref;
 	
-			var _this = _possibleConstructorReturn(this, (ImageViewer.__proto__ || Object.getPrototypeOf(ImageViewer)).call(this, props));
+	    var _temp, _this, _ret;
 	
-			_this.state = {
-				curUrl: _this.props.url,
-				curIndex: parseInt(_this.props.index) - 1
-			};
+	    _classCallCheck(this, ImageDialog);
 	
-			_this.placeZero = function (value) {
-				return ('' + value).length == 1 ? '0' + value : value;
-			};
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
 	
-			_this.preview = function () {
-				if (_this.state.curIndex == 0) return;
-				_this.setState({
-					curIndex: _this.state.curIndex - 1
-				});
-			};
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ImageDialog.__proto__ || Object.getPrototypeOf(ImageDialog)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+	      open: false,
+	      imageUrl: '',
+	      imageDir: '',
+	      imageSize: 0
+	    }, _this.show = function (index, dir, size) {
+	      _this.setState({ open: true,
+	        imageIndex: index,
+	        imageUrl: dir + 'img-' + index + '.jpg',
+	        imageDir: dir,
+	        imageSize: size });
+	    }, _this.close = function () {
+	      _this.setState({ open: false });
+	    }, _temp), _possibleConstructorReturn(_this, _ret);
+	  }
 	
-			_this.next = function () {
-				if (parseInt(_this.state.curIndex) >= parseInt(_this.props.size) - 1) return;
-				_this.setState({
-					curIndex: _this.state.curIndex + 1
-				});
-			};
+	  _createClass(ImageDialog, [{
+	    key: 'render',
+	    value: function render() {
+	      var actions = [_react2.default.createElement(_FlatButton2.default, {
+	        label: '\u5173\u95ED',
+	        primary: true,
+	        onTouchTap: this.close
+	      })];
 	
-			_this.listImage = function (dir, size) {
-				var data = [];
-				for (var i = 1; i <= size; i++) {
-					data.push({
-						url: dir + 'img-' + _this.placeZero(i) + '.jpg',
-						index: _this.placeZero(i),
-						author: 'lmyooyo'
-					});
-				}
-				return data;
-			};
+	      return _react2.default.createElement(
+	        'div',
+	        { style: styles.root },
+	        _react2.default.createElement(
+	          _Dialog2.default,
+	          {
+	            actions: actions,
+	            modal: false,
+	            contentStyle: styles.content,
+	            style: styles.content,
+	            bodyStyle: styles.body,
+	            open: this.state.open,
+	            onRequestClose: this.close },
+	          _react2.default.createElement(_ImageViewer2.default, {
+	            url: this.state.imageUrl,
+	            dir: this.state.imageDir,
+	            index: this.state.imageIndex,
+	            size: this.state.imageSize })
+	        )
+	      );
+	    }
+	  }]);
 	
-			_this.handleChange = function (value) {
-				_this.setState({
-					curIndex: value
-				});
-			};
-	
-			return _this;
-		}
-	
-		_createClass(ImageViewer, [{
-			key: 'render',
-			value: function render() {
-				var _this2 = this;
-	
-				return _react2.default.createElement(
-					'div',
-					{ style: styles.root },
-					_react2.default.createElement(
-						_reactSwipeableViews2.default,
-						{
-							index: this.state.curIndex,
-							style: styles.content,
-							onChangeIndex: this.handleChange },
-						this.listImage(this.props.dir, this.props.size).map(function (image) {
-							return _react2.default.createElement('img', { src: image.url, style: styles.card });
-						})
-					),
-					_react2.default.createElement('div', { style: styles.preview, onTouchTap: function onTouchTap() {
-							return _this2.preview();
-						} }),
-					_react2.default.createElement('div', { style: styles.next, onTouchTap: function onTouchTap() {
-							return _this2.next();
-						} })
-				);
-			}
-		}]);
-	
-		return ImageViewer;
+	  return ImageDialog;
 	}(_react2.default.Component);
 	
-	exports.default = ImageViewer;
+	exports.default = ImageDialog;
 
 /***/ },
 /* 417 */
@@ -41639,9 +41621,167 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
 
 /***/ },
-/* 430 */,
-/* 431 */,
-/* 432 */
+/* 430 */
+/*!****************************!*\
+  !*** ./src/ImageViewer.js ***!
+  \****************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactSwipeableViews = __webpack_require__(/*! react-swipeable-views */ 381);
+	
+	var _reactSwipeableViews2 = _interopRequireDefault(_reactSwipeableViews);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var styles = {
+		root: {
+			height: '100%',
+			width: '100%'
+		},
+		content: {
+			marginTop: 'auto',
+			marginBottom: 'auto',
+			textAlign: 'center'
+		},
+		card: {
+			height: 'auto',
+			width: 'auto',
+			maxWidth: '100%',
+			maxHeight: '100%'
+		},
+		preview: {
+			width: '5%',
+			height: '100%',
+			maxWidth: 80,
+			cursor: 'pointer',
+			position: 'absolute',
+			top: 0,
+			left: 0,
+			filter: 'alpha(opacity:0)',
+			opacity: '0'
+		},
+		next: {
+			width: '5%',
+			height: '100%',
+			maxWidth: 80,
+			cursor: 'pointer',
+			position: 'absolute',
+			top: 0,
+			right: 0,
+			filter: 'alpha(opacity:0)',
+			opacity: '0'
+		},
+		icon: {
+			marginTop: 'auto',
+			marginBottom: 'auto'
+		}
+	};
+	
+	var ImageViewer = function (_React$Component) {
+		_inherits(ImageViewer, _React$Component);
+	
+		function ImageViewer(props) {
+			_classCallCheck(this, ImageViewer);
+	
+			var _this = _possibleConstructorReturn(this, (ImageViewer.__proto__ || Object.getPrototypeOf(ImageViewer)).call(this, props));
+	
+			_this.state = {
+				curUrl: _this.props.url,
+				curIndex: parseInt(_this.props.index) - 1
+			};
+	
+			_this.placeZero = function (value) {
+				return ('' + value).length == 1 ? '0' + value : value;
+			};
+	
+			_this.preview = function () {
+				if (_this.state.curIndex == 0) return;
+				_this.setState({
+					curIndex: _this.state.curIndex - 1
+				});
+			};
+	
+			_this.next = function () {
+				if (parseInt(_this.state.curIndex) >= parseInt(_this.props.size) - 1) return;
+				_this.setState({
+					curIndex: _this.state.curIndex + 1
+				});
+			};
+	
+			_this.listImage = function (dir, size) {
+				var data = [];
+				for (var i = 1; i <= size; i++) {
+					data.push({
+						url: dir + 'img-' + _this.placeZero(i) + '.jpg',
+						index: _this.placeZero(i),
+						author: 'lmyooyo'
+					});
+				}
+				return data;
+			};
+	
+			_this.handleChange = function (value) {
+				_this.setState({
+					curIndex: value
+				});
+			};
+	
+			return _this;
+		}
+	
+		_createClass(ImageViewer, [{
+			key: 'render',
+			value: function render() {
+				var _this2 = this;
+	
+				return _react2.default.createElement(
+					'div',
+					{ style: styles.root },
+					_react2.default.createElement(
+						_reactSwipeableViews2.default,
+						{
+							index: this.state.curIndex,
+							style: styles.content,
+							onChangeIndex: this.handleChange },
+						this.listImage(this.props.dir, this.props.size).map(function (image) {
+							return _react2.default.createElement('img', { src: image.url, style: styles.card });
+						})
+					),
+					_react2.default.createElement('div', { style: styles.preview, onTouchTap: function onTouchTap() {
+							return _this2.preview();
+						} }),
+					_react2.default.createElement('div', { style: styles.next, onTouchTap: function onTouchTap() {
+							return _this2.next();
+						} })
+				);
+			}
+		}]);
+	
+		return ImageViewer;
+	}(_react2.default.Component);
+	
+	exports.default = ImageViewer;
+
+/***/ },
+/* 431 */
 /*!*************************************!*\
   !*** ./~/material-ui/Card/index.js ***!
   \*************************************/
@@ -41654,31 +41794,31 @@
 	});
 	exports.default = exports.CardExpandable = exports.CardActions = exports.CardText = exports.CardMedia = exports.CardTitle = exports.CardHeader = exports.Card = undefined;
 	
-	var _Card2 = __webpack_require__(/*! ./Card */ 433);
+	var _Card2 = __webpack_require__(/*! ./Card */ 432);
 	
 	var _Card3 = _interopRequireDefault(_Card2);
 	
-	var _CardHeader2 = __webpack_require__(/*! ./CardHeader */ 437);
+	var _CardHeader2 = __webpack_require__(/*! ./CardHeader */ 436);
 	
 	var _CardHeader3 = _interopRequireDefault(_CardHeader2);
 	
-	var _CardTitle2 = __webpack_require__(/*! ./CardTitle */ 440);
+	var _CardTitle2 = __webpack_require__(/*! ./CardTitle */ 439);
 	
 	var _CardTitle3 = _interopRequireDefault(_CardTitle2);
 	
-	var _CardMedia2 = __webpack_require__(/*! ./CardMedia */ 441);
+	var _CardMedia2 = __webpack_require__(/*! ./CardMedia */ 440);
 	
 	var _CardMedia3 = _interopRequireDefault(_CardMedia2);
 	
-	var _CardText2 = __webpack_require__(/*! ./CardText */ 442);
+	var _CardText2 = __webpack_require__(/*! ./CardText */ 441);
 	
 	var _CardText3 = _interopRequireDefault(_CardText2);
 	
-	var _CardActions2 = __webpack_require__(/*! ./CardActions */ 443);
+	var _CardActions2 = __webpack_require__(/*! ./CardActions */ 442);
 	
 	var _CardActions3 = _interopRequireDefault(_CardActions2);
 	
-	var _CardExpandable2 = __webpack_require__(/*! ./CardExpandable */ 434);
+	var _CardExpandable2 = __webpack_require__(/*! ./CardExpandable */ 433);
 	
 	var _CardExpandable3 = _interopRequireDefault(_CardExpandable2);
 	
@@ -41696,7 +41836,7 @@
 	exports.default = _Card3.default;
 
 /***/ },
-/* 433 */
+/* 432 */
 /*!************************************!*\
   !*** ./~/material-ui/Card/Card.js ***!
   \************************************/
@@ -41748,7 +41888,7 @@
 	
 	var _Paper2 = _interopRequireDefault(_Paper);
 	
-	var _CardExpandable = __webpack_require__(/*! ./CardExpandable */ 434);
+	var _CardExpandable = __webpack_require__(/*! ./CardExpandable */ 433);
 	
 	var _CardExpandable2 = _interopRequireDefault(_CardExpandable);
 	
@@ -41907,7 +42047,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
 
 /***/ },
-/* 434 */
+/* 433 */
 /*!**********************************************!*\
   !*** ./~/material-ui/Card/CardExpandable.js ***!
   \**********************************************/
@@ -41947,11 +42087,11 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _keyboardArrowUp = __webpack_require__(/*! ../svg-icons/hardware/keyboard-arrow-up */ 435);
+	var _keyboardArrowUp = __webpack_require__(/*! ../svg-icons/hardware/keyboard-arrow-up */ 434);
 	
 	var _keyboardArrowUp2 = _interopRequireDefault(_keyboardArrowUp);
 	
-	var _keyboardArrowDown = __webpack_require__(/*! ../svg-icons/hardware/keyboard-arrow-down */ 436);
+	var _keyboardArrowDown = __webpack_require__(/*! ../svg-icons/hardware/keyboard-arrow-down */ 435);
 	
 	var _keyboardArrowDown2 = _interopRequireDefault(_keyboardArrowDown);
 	
@@ -42009,7 +42149,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
 
 /***/ },
-/* 435 */
+/* 434 */
 /*!***************************************************************!*\
   !*** ./~/material-ui/svg-icons/hardware/keyboard-arrow-up.js ***!
   \***************************************************************/
@@ -42047,7 +42187,7 @@
 	exports.default = HardwareKeyboardArrowUp;
 
 /***/ },
-/* 436 */
+/* 435 */
 /*!*****************************************************************!*\
   !*** ./~/material-ui/svg-icons/hardware/keyboard-arrow-down.js ***!
   \*****************************************************************/
@@ -42085,7 +42225,7 @@
 	exports.default = HardwareKeyboardArrowDown;
 
 /***/ },
-/* 437 */
+/* 436 */
 /*!******************************************!*\
   !*** ./~/material-ui/Card/CardHeader.js ***!
   \******************************************/
@@ -42133,7 +42273,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Avatar = __webpack_require__(/*! ../Avatar */ 438);
+	var _Avatar = __webpack_require__(/*! ../Avatar */ 437);
 	
 	var _Avatar2 = _interopRequireDefault(_Avatar);
 	
@@ -42287,7 +42427,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
 
 /***/ },
-/* 438 */
+/* 437 */
 /*!***************************************!*\
   !*** ./~/material-ui/Avatar/index.js ***!
   \***************************************/
@@ -42300,7 +42440,7 @@
 	});
 	exports.default = undefined;
 	
-	var _Avatar = __webpack_require__(/*! ./Avatar */ 439);
+	var _Avatar = __webpack_require__(/*! ./Avatar */ 438);
 	
 	var _Avatar2 = _interopRequireDefault(_Avatar);
 	
@@ -42311,7 +42451,7 @@
 	exports.default = _Avatar2.default;
 
 /***/ },
-/* 439 */
+/* 438 */
 /*!****************************************!*\
   !*** ./~/material-ui/Avatar/Avatar.js ***!
   \****************************************/
@@ -42482,7 +42622,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
 
 /***/ },
-/* 440 */
+/* 439 */
 /*!*****************************************!*\
   !*** ./~/material-ui/Card/CardTitle.js ***!
   \*****************************************/
@@ -42647,7 +42787,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
 
 /***/ },
-/* 441 */
+/* 440 */
 /*!*****************************************!*\
   !*** ./~/material-ui/Card/CardMedia.js ***!
   \*****************************************/
@@ -42841,7 +42981,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
 
 /***/ },
-/* 442 */
+/* 441 */
 /*!****************************************!*\
   !*** ./~/material-ui/Card/CardText.js ***!
   \****************************************/
@@ -42964,7 +43104,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
 
 /***/ },
-/* 443 */
+/* 442 */
 /*!*******************************************!*\
   !*** ./~/material-ui/Card/CardActions.js ***!
   \*******************************************/
@@ -43092,7 +43232,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
 
 /***/ },
-/* 444 */
+/* 443 */
 /*!**************************!*\
   !*** ./src/VideoView.js ***!
   \**************************/
@@ -43148,7 +43288,7 @@
 	exports.default = VideoView;
 
 /***/ },
-/* 445 */
+/* 444 */
 /*!**************************!*\
   !*** ./src/AboutView.js ***!
   \**************************/
@@ -43252,141 +43392,6 @@
 	}(_react2.default.Component);
 	
 	exports.default = AboutView;
-
-/***/ },
-/* 446 */
-/*!****************************!*\
-  !*** ./src/ImageDialog.js ***!
-  \****************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _Dialog = __webpack_require__(/*! material-ui/Dialog */ 417);
-	
-	var _Dialog2 = _interopRequireDefault(_Dialog);
-	
-	var _FlatButton = __webpack_require__(/*! material-ui/FlatButton */ 427);
-	
-	var _FlatButton2 = _interopRequireDefault(_FlatButton);
-	
-	var _ImageViewer = __webpack_require__(/*! ./ImageViewer */ 416);
-	
-	var _ImageViewer2 = _interopRequireDefault(_ImageViewer);
-	
-	var _Card = __webpack_require__(/*! material-ui/Card */ 432);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var styles = {
-	  root: {
-	    position: 'fixed'
-	  },
-	  content: {
-	    position: 'fixed',
-	    top: 0,
-	    padding: 2,
-	    paddingRight: 7,
-	    width: '100%',
-	    maxWidth: 'none',
-	    textAlign: 'center'
-	  },
-	  card: {
-	    display: 'inline-block',
-	    height: 'auto',
-	    width: 'auto',
-	    maxWidth: '100%',
-	    maxHeight: '100%'
-	  },
-	  body: {
-	    paddingTop: 10,
-	    paddingLeft: 0,
-	    paddingRight: 0
-	  }
-	};
-	
-	var ImageDialog = function (_React$Component) {
-	  _inherits(ImageDialog, _React$Component);
-	
-	  function ImageDialog() {
-	    var _ref;
-	
-	    var _temp, _this, _ret;
-	
-	    _classCallCheck(this, ImageDialog);
-	
-	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
-	
-	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ImageDialog.__proto__ || Object.getPrototypeOf(ImageDialog)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-	      open: false,
-	      imageUrl: '',
-	      imageDir: '',
-	      imageSize: 0
-	    }, _this.show = function (index, dir, size) {
-	      _this.setState({ open: true,
-	        imageIndex: index,
-	        imageUrl: dir + 'img-' + index + '.jpg',
-	        imageDir: dir,
-	        imageSize: size });
-	    }, _this.close = function () {
-	      _this.setState({ open: false });
-	    }, _temp), _possibleConstructorReturn(_this, _ret);
-	  }
-	
-	  _createClass(ImageDialog, [{
-	    key: 'render',
-	    value: function render() {
-	      var actions = [_react2.default.createElement(_FlatButton2.default, {
-	        label: '\u5173\u95ED',
-	        primary: true,
-	        onTouchTap: this.close
-	      })];
-	
-	      return _react2.default.createElement(
-	        'div',
-	        { style: styles.root },
-	        _react2.default.createElement(
-	          _Dialog2.default,
-	          {
-	            actions: actions,
-	            modal: false,
-	            contentStyle: styles.content,
-	            style: styles.content,
-	            bodyStyle: styles.body,
-	            open: this.state.open,
-	            onRequestClose: this.close },
-	          _react2.default.createElement(_ImageViewer2.default, {
-	            url: this.state.imageUrl,
-	            dir: this.state.imageDir,
-	            index: this.state.imageIndex,
-	            size: this.state.imageSize })
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return ImageDialog;
-	}(_react2.default.Component);
-	
-	exports.default = ImageDialog;
 
 /***/ }
 /******/ ]);
